@@ -2,6 +2,7 @@ import React from 'react'
 import HomeSlider from '../../components/Slider/HomeSlider'
 import HomeCatSlider from '../../components/CatSlider/HomeCatSlider'
 import { TbTruckDelivery } from "react-icons/tb";
+import AdsSlider from '../../components/AdsSlider/AdsSlider';
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
 
       <section className="py-10 bg-white">
         <div className="container">
-          <div className="FreeShipping w-full py-2 p-8 border flex items-center justify-between rounded-xl">
+          <div className="FreeShipping w-full py-2 mb-5 p-8 border flex items-center justify-between rounded-xl">
             <div className="col1 flex items-center gap-4">
               <TbTruckDelivery className='text-[50px]'></TbTruckDelivery>
               <span className='text-[25px] font-[600]'>FREE SHIPPING</span>
@@ -23,6 +24,9 @@ const Home = () => {
               <p className='text-[30px] font-bold'>ONLY 399/-</p>
             </div>
           </div>
+
+          <AdsSlider items={4}></AdsSlider>
+
         </div>
       </section>
     </>

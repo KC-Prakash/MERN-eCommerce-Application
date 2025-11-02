@@ -1,134 +1,140 @@
 @import "tailwindcss";
 
-:root{
-    --primary-clr : #ff5252;
-    --body-clr : #f5f0f0;
+:root {
+  --primary-clr: #ff5252;
+  --body-clr: #f5f0f0;
 }
 
-body{
-    font-family: "Montserrat" sans-serif;
-    font-optical-sizing: auto;
-    background: var(--body-clr);
-    overflow-x: hidden;
+.primary{
+  color: var(--primary-clr);
+}
+.bg-primary{
+  background-color: var(--primary-clr);
 }
 
-::-webkit-scrollbar{
-    width: 8px !important;
-    height: 8px !important;
+body {
+  font-family: "Montserrat" sans-serif;
+  font-optical-sizing: auto;
+  background: var(--body-clr);
+  overflow-x: hidden;
 }
 
-::-webkit-scrollbar-thumb{
-    background: var(--primary-clr);
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
 }
 
-::-webkit-scrollbar-track{
-    background: white;
+::-webkit-scrollbar-thumb {
+  background: var(--primary-clr);
 }
 
-.container{
-    width: 95%;
-    margin: auto;
+::-webkit-scrollbar-track {
+  background: white;
 }
 
-.link:hover{
-    color: var(--primary-clr);
+.container {
+  width: 95%;
+  margin: auto;
 }
 
-.MuiBadge-badge{
-    background-color: var(--primary-clr);
-    color: white;
+.link:hover {
+  color: var(--primary-clr);
 }
 
-.searchBox input::placeholder{
-    color: rgb(60, 60, 60) !important;
+.MuiBadge-badge {
+  background-color: var(--primary-clr);
+  color: white;
 }
 
-button{
-    text-transform: capitalize !important;
-    color: rgba(0, 0, 0, 0.9) !important;
-    background: none !important; 
+.searchBox input::placeholder {
+  color: rgb(60, 60, 60) !important;
 }
 
-button:hover{
-    color: var(--primary-clr) !important;
-    transition: 0.3s;
+button {
+  text-transform: capitalize !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+  background: none !important;
+}
+
+button:hover {
+  color: var(--primary-clr) !important;
+  transition: 0.3s;
 }
 
 /* .drawerPanel .submenu{
     display: none;
 } */
 
-.nav li .submenu{
-    visibility: hidden;
+.nav li .submenu {
+  visibility: hidden;
 }
 
-.nav li:hover .submenu{
-    opacity: 1 !important;
-    visibility: inherit;
-    z-index: 1000;
-
+.nav li:hover .submenu {
+  opacity: 1 !important;
+  visibility: inherit;
+  z-index: 1000;
 }
 
-.nav li .submenu li .submenu{
-    left: 150% !important;
-    opacity: 0 !important;
+.nav li .submenu li .submenu {
+  left: 150% !important;
+  opacity: 0 !important;
 }
 
-.nav li .submenu li:hover .submenu{
-    left: 100% !important;
-    opacity: 1 !important;
-    z-index: 1000;
+.nav li .submenu li:hover .submenu {
+  left: 100% !important;
+  opacity: 1 !important;
+  z-index: 1000;
 }
 
-.sliderHome{
-    overflow: inherit !important;
+.sliderHome {
+  overflow: inherit !important;
 }
 
-.homeSlider{
-    background-color: none;
+.homeSlider {
+  background-color: none;
 }
 
-.swiper-navigation-icon{
-    padding: 12px;
-    color: var(--primary-clr);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    border-radius: 100%;
-    width: 45px;
-    min-width: 45px;
-    height: 45px;
-    box-shadow: 0 1px 2px var(--primary-clr);
+.swiper-navigation-icon {
+  padding: 12px;
+  color: var(--primary-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 100%;
+  width: 45px;
+  min-width: 45px;
+  height: 45px;
+  box-shadow: 0 1px 2px var(--primary-clr);
 }
 
-.swiper-pagination{
-    margin-top: 20px !important;
-    position: relative !important;
+.swiper-pagination {
+  margin-top: 20px !important;
+  position: relative !important;
 }
 
-.item{
-    border-radius: 20px;
+.item {
+  border-radius: 20px;
 }
 
-.HomeCatSlider .container .item:hover{
-    box-shadow: 2px 2px var(--primary-clr);
-    transition: 0.3s;
+.HomeCatSlider .container .item:hover {
+  box-shadow: 2px 2px var(--primary-clr);
+  transition: 0.3s;
 }
 
-.HomeCatSlider .container .item:hover img{
-    transform: scale(1.2);
-    transition: 0.3s;
+.HomeCatSlider .container .item:hover img {
+  transform: scale(1.2);
+  transition: 0.3s;
 }
 
-.swiper-pagination-bullet{
-    background: var(--primary-clr) !important;
+.swiper-pagination-bullet {
+  background: var(--primary-clr) !important;
 }
 
-.CatSlider{
-    overflow: inherit !important;
+.CatSlider {
+  overflow: inherit !important;
 }
 
-.FreeShipping{
-    border: 1.5px solid var(--primary-clr);
+.FreeShipping {
+  border: 1.5px solid var(--primary-clr);
 }
