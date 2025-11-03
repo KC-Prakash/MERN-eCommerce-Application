@@ -108,6 +108,15 @@ button:hover {
   box-shadow: 0 1px 2px var(--primary-clr);
 }
 
+.css-1qltlow-MuiTabs-indicator{
+  background-color: var(--primary-clr) !important;
+}
+
+/* MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root */
+.css-120dh41-MuiSvgIcon-root{
+  fill: var(--primary-clr) !important;
+  font-size: 2rem !important;
+}
 .swiper-pagination {
   margin-top: 20px !important;
   position: relative !important;
