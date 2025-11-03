@@ -20,7 +20,7 @@ const Home = () => {
       <HomeSlider></HomeSlider>
       <HomeCatSlider></HomeCatSlider>
 
-      <section className="bg-white py-8">
+      <section className="bg-white pt-8">
         <div className="container">
           <div className="flex items-center justify-between">
             <div className="leftSection w-[30%]">
@@ -37,24 +37,27 @@ const Home = () => {
                 scrollButtons="auto"
                 aria-label="scrollable auto tabs example"
               >
-                <Tab className="!text-[18px] !font-bold" label="Casuals" />
-                <Tab className="!text-[18px] !font-bold" label="Denims" />
-                <Tab className="!text-[18px] !font-bold" label="Cargos" />
-                <Tab className="!text-[18px] !font-bold" label="Floral" />
-                <Tab className="!text-[18px] !font-bold" label="Jacfort" />
-                <Tab className="!text-[18px] !font-bold" label="Falls" />
-                <Tab className="!text-[18px] !font-bold" label="Crop Tops" />
-                <Tab className="!text-[18px] !font-bold" label="Crop" />
-                <Tab className="!text-[18px] !font-bold" label="Bells" />
-                <Tab className="!text-[18px] !font-bold" label="Shorts" />
+                <Tab className="!text-[16px] !font-bold" label="Casuals" />
+                <Tab className="!text-[16px] !font-bold" label="Denims" />
+                <Tab className="!text-[16px] !font-bold" label="Cargos" />
+                <Tab className="!text-[16px] !font-bold" label="Floral" />
+                <Tab className="!text-[16px] !font-bold" label="Jacfort" />
+                <Tab className="!text-[16px] !font-bold" label="Falls" />
+                <Tab className="!text-[16px] !font-bold" label="Crop Tops" />
+                <Tab className="!text-[16px] !font-bold" label="Crop" />
+                <Tab className="!text-[16px] !font-bold" label="Bells" />
+                <Tab className="!text-[16px] !font-bold" label="Shorts" />
+                <Tab className="!text-[16px] !font-bold" label="Tracks" />
+                <Tab className="!text-[16px] !font-bold" label="Jaquers" />
+                <Tab className="!text-[16px] !font-bold" label="Formals" />
               </Tabs>
             </div>
           </div>
-          <ProductSlider items={5}></ProductSlider>
+          <ProductSlider items={6}></ProductSlider>
         </div>
       </section>
 
-      <section className="py-10 bg-white">
+      <section className="bg-white">
         <div className="container">
           <div className="FreeShipping w-full py-2 mb-5 p-8 border flex items-center justify-between rounded-xl">
             <div className="col1 flex items-center gap-4">

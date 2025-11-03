@@ -8,7 +8,7 @@ import BannerBox from "../BannerBox/BannerBox";
 
 const AdsSlider = (probs) => {
   return (
-    <div className="py-5 w-full">
+    <div className="py-8 w-full">
       <Swiper
         slidesPerView={probs.items}
         spaceBetween={20}

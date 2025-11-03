@@ -2,25 +2,44 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import ProductItem from "../ProductItem/ProductItem";
 
 const ProductSlider = (props) => {
   return (
-    <div className="productSlider py-5">
+    <div className="productSlider py-5 pt-10">
       <Swiper
         slidesPerView={props.items}
         spaceBetween={20}
-        navigation={true}
         pagination={{
           dynamicBullets: true,
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination]}
         className="CatSlider"
       >
         <SwiperSlide>
-            <ProductItem></ProductItem>
+          <ProductItem></ProductItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProductItem></ProductItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProductItem></ProductItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProductItem></ProductItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProductItem></ProductItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProductItem></ProductItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProductItem></ProductItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProductItem></ProductItem>
         </SwiperSlide>
       </Swiper>
     </div>
