@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Links } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import Button from "@mui/material/Button";
 import { FaRegHeart } from "react-icons/fa";
@@ -9,7 +9,7 @@ import { MdZoomOutMap } from "react-icons/md";
 
 const ProductItem = () => {
   return (
-    <div className="productItem pt-3 group overflow-hidden rounded-lg border-1 border-[rgba(0,0,0,0.3)] transition-all">
+    <div className="productItem bg-white pt-3 group overflow-hidden rounded-lg transition-all">
       <div className="group/img imgWraapper w-[100%] relative">
         <Link to={"/"}>
           <div className="img h-[200px] overflow-hidden">

@@ -5,8 +5,12 @@ import { TbTruckDelivery } from "react-icons/tb";
 import AdsSlider from "../../components/AdsSlider/AdsSlider";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
 import ProductSlider from "../../components/ProductSlider/ProductSlider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import BlogItem from "../../components/BlogItem/BlogItem";
 
 const Home = () => {
   const [value, setValue] = React.useState(0);
@@ -26,7 +30,7 @@ const Home = () => {
             <div className="leftSection w-[30%]">
               <h2 className="text-[20px] font-medium">Popular Products</h2>
               <p className="text-[14px] font-[500]">
-                Do not miss the current offers until the end of the Season
+                Do not miss the current offers until the end of the Season.
               </p>
             </div>
             <div className="rightSection w-[60%]">
@@ -78,13 +82,13 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-white pt-8">
+      <section className="bg-body pt-8">
         <div className="container">
           <div className="flex items-center justify-between">
             <div className="leftSection">
               <h2 className="text-[20px] font-medium">Latest Products</h2>
               <p className="text-[14px] font-[500]">
-                Do not miss the current offers until the end of the Season
+                Do not miss the current offers until the end of the Season.
               </p>
             </div>
           </div>
@@ -99,12 +103,43 @@ const Home = () => {
             <div className="leftSection">
               <h2 className="text-[20px] font-medium">Featured Products</h2>
               <p className="text-[14px] font-[500]">
-                Do not miss the current offers until the end of the Season
+                Do not miss the current offers until the end of the Season.
               </p>
             </div>
           </div>
           <ProductSlider items={6}></ProductSlider>
           <AdsSlider items={4}></AdsSlider>
+        </div>
+      </section>
+
+      <section className="blogSection pt-6 py-5 bg-body">
+        <div className="container shadow-gray-500">
+          <h2 className="text-[20px] font-medium">From the Blog</h2>
+          <p className="text-[14px] font-[500] mb-8">
+            Do not miss the current Updates and get Magical Coupon Codes.
+          </p>
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={20}
+            pagination={{
+              dynamicBullets: true,
+            }}
+            modules={[Pagination]}
+            className="blogSlider"
+          >
+            <SwiperSlide>
+              <BlogItem></BlogItem>
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem></BlogItem>
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem></BlogItem>
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem></BlogItem>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </section>
     </>
@@ -113,3 +148,4 @@ const Home = () => {
 
 export default Home;
 
+// TIMESTAMP 14.40
