@@ -60,7 +60,7 @@ const Header = () => {
                 <div className="col3 w-[32%] pl-45 justify-end">
                     <ul className="flex items-center gap-3 w-full">
                         <li className="list-none">
-                            <Link to={'/login'} className='link transition-all duration-300 text-[15px] font-[500]'>Login</Link> | <Link className='link transition-all duration-300 text-[15px] font-[500]' to={'/register'}>Register</Link>
+                            <Link to={'/login'} className='link transition-all duration-300 text-[15px] font-[500]'>Login</Link><Link className='cursor-pointer text-gray-300'> | </Link><Link className='link transition-all duration-300 text-[15px] font-[500]' to={'/register'}>Register</Link>
                         </li>
                         <li className='ml-5'>
                             <Tooltip title="Compare">

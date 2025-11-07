@@ -4,11 +4,14 @@ import { IoSync } from "react-icons/io5";
 import { IoWalletOutline } from "react-icons/io5";
 import { IoGiftOutline } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import { PiChats } from "react-icons/pi";
+import Button from "@mui/material/Button";
 
 const Footer = () => {
   return (
-    <footer className="py-6 bg-white">
-      <div className="container w-full py-5 mb-5 p-12">
+    <footer className=" bg-white">
+      <div className="container w-full py-11 mb-5 p-12">
         <div className="flex items-center gap-2 justify-around">
           <div className="col flex flex-col items-center group">
             <LiaShippingFastSolid className="text-[4rem] group-hover:text-[#ff5252] transition-all duration-300 group-hover:-translate-y-1"></LiaShippingFastSolid>
@@ -35,6 +38,130 @@ const Footer = () => {
             <h3 className="m-1 text-[18px] font-bold">Support 24/7</h3>
             <span className="text-[14px]">Contact us Anytime.</span>
           </div>
+        </div>
+      </div>
+
+      <div className="flex container border-t-1 border-gray-300 py-10">
+        <div className="part1 border-r-1 border-gray-300  w-[20%]">
+          <h2 className="text-[18px] font-[600] mb-4">Contact Us</h2>
+          <p className="text-[13px] font-[400] my-4">
+            Repiit - The Art of Collections <br /> 507-Repiit IT Tower <br />{" "}
+            Chennai
+          </p>
+          <Link
+            className="link transition-all duration-300 text-[13px]"
+            to={"mailto:amdshafeek7@gmail.com"}
+          >
+            amdshafeek7@gmail.com
+          </Link>
+          <span className="primary text-[20px] font-[700] block w-full mt-4">
+            (+91) 63835 40654
+          </span>
+          <div className="flex items-center gap-3 mt-3">
+            <PiChats className="text-[50px] primary"></PiChats>
+            <span className="text-[15px] font-[600]">
+              Online Chat <br />
+              Get Expert Help
+            </span>
+          </div>
+        </div>
+
+        <div className="part2 w-[20%] flex">
+          <div className="col1 mx-10">
+            <h2 className="text-[18px] font-[600] mb-4">Products</h2>
+            <ul className="list">
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Price Drop
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  New products
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Best sales
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Contact us
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Sitemap
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Stores
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="part2 w-[20%] flex border-r-1 border-gray-300">
+          <div className="col1 mx-10">
+            <h2 className="text-[18px] font-[600] mb-4">Our company</h2>
+            <ul className="list">
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Delivery
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Legal Notice
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Terms and conditions of use
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  About us
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Secure payment
+                </Link>
+              </li>
+              <li className="list-none text-[14px] w-full mb-4">
+                <Link to={"/"} className="link transition-all duration-300">
+                  Careers
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="part4 w-[40%] flex flex-col mx-10">
+          <h2 className="text-[18px] font-[600] mb-4">
+            Subscribe to newsletter
+          </h2>
+          <p className="text-[13px] font-[400]">
+            Subscribe to our latest newsletter to get news about special
+            discounts.
+          </p>
+          <form>
+            <div className="flex gap-3 mt-3.5">
+              <input
+                type="text"
+                className="w-full h-[45px] border border-gray-300 outline-none rounded-sm pl-4"
+                placeholder="Enter Email Address"
+              />
+              <Button className="!bg-white !border-1 !border-[#ff5252] !h-[45px] !px-[20px] !text-[#ff5252] !hover:bg-[#ff5252]">
+                SUBSCRIBE
+              </Button>
+            </div>
+          </form>
         </div>
       </div>
     </footer>

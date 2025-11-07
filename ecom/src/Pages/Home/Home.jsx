@@ -121,7 +121,7 @@ const Home = () => {
           </p>
           <Swiper
             slidesPerView={4}
-            spaceBetween={20}
+            spaceBetween={60}
             pagination={{
               dynamicBullets: true,
             }}
