@@ -5,15 +5,15 @@
   --body-clr: #f5f0f0;
 }
 
-.primary{
+.primary {
   color: var(--primary-clr);
 }
 
-.bg-body{
+.bg-body {
   background-color: var(--body-clr);
 }
 
-.bg-primary{
+.bg-primary {
   background-color: var(--primary-clr);
 }
 
@@ -108,11 +108,11 @@ button:hover {
   box-shadow: 0 1px 2px var(--primary-clr);
 }
 
-.css-1qltlow-MuiTabs-indicator{
+.css-1qltlow-MuiTabs-indicator {
   background-color: var(--primary-clr) !important;
 }
 
-.css-120dh41-MuiSvgIcon-root{
+.css-120dh41-MuiSvgIcon-root {
   fill: var(--primary-clr) !important;
   font-size: 2rem !important;
 }
@@ -145,9 +145,19 @@ button:hover {
   border: 1.5px solid var(--primary-clr);
 }
 
-.btn-org{
+.btn-org {
   background: var(--primary-clr) !important;
   color: white !important;
   font-weight: 500 !important;
   font-size: 16px !important;
+}
+
+.css-vuhw6e-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root {
+  color: var(--primary-clr) !important;
+}
+
+.css-rizt0-MuiTypography-root {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
