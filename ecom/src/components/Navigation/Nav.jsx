@@ -110,11 +110,60 @@ const Nav = () => {
                                     <li className="list-none w-full">
                                         <Link to={'/'}>
                                             <Button className='!font-[600] w-full !text-left !justify-start !rounded-none'>Kids</Button>
+                                            <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300-all">
+                                                <ul>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className='w-full !text-left !justify-start !rounded-none'>Shorts</Button>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className='w-full !text-left !justify-start !rounded-none'>T Shirt</Button>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className=' w-full !text-left !justify-start !rounded-none'>Shirts</Button>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className=' w-full !text-left !justify-start !rounded-none'>Cap</Button>
+
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </Link>
                                     </li>
                                     <li className="list-none w-full">
                                         <Link to={'/'}>
                                             <Button className='!font-[600] w-full !text-left !justify-start !rounded-none'>Babies</Button>
+                                            <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300-all">
+                                                <ul>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className='w-full !text-left !justify-start !rounded-none'>Towel</Button>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className='w-full !text-left !justify-start !rounded-none'>Pure Cottons</Button>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className=' w-full !text-left !justify-start !rounded-none'>Bedsheet</Button>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="list-none w-full">
+                                                        <Link to={'/'}>
+                                                            <Button className=' w-full !text-left !justify-start !rounded-none'>Jels</Button>
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </Link>
                                     </li>
                                 </ul>

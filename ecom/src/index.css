@@ -85,10 +85,10 @@ button:hover {
   opacity: 1 !important;
   z-index: 1000;
 }
-
+/* 
 .sliderHome {
   overflow: inherit !important;
-}
+} */
 
 .homeSlider {
   background-color: none;
