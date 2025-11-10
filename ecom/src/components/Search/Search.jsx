@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import { FaSearch } from "react-icons/fa";
+import "../Search/Search.css";
 
 const Search = () => {
   return (

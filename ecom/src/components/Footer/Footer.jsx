@@ -7,7 +7,6 @@ import { BiSupport } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { PiChats } from "react-icons/pi";
 import Button from "@mui/material/Button";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { FaInstagram } from "react-icons/fa6";
@@ -19,7 +18,7 @@ const Footer = () => {
   return (
     <>
       <footer className=" bg-white">
-        <div className="container w-full py-11 mb-5 p-12">
+        <div className="container w-full py-11 mb-5 p-12 border-t border-gray-300">
           <div className="flex items-center gap-2 justify-around">
             <div className="col flex flex-col items-center group">
               <LiaShippingFastSolid className="text-[4rem] group-hover:text-[#ff5252] transition-all duration-300 group-hover:-translate-y-1"></LiaShippingFastSolid>

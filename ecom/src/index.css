@@ -46,15 +46,6 @@ body {
   color: var(--primary-clr);
 }
 
-.MuiBadge-badge {
-  background-color: var(--primary-clr);
-  color: white;
-}
-
-.searchBox input::placeholder {
-  color: rgb(60, 60, 60) !important;
-}
-
 button {
   text-transform: capitalize !important;
   color: rgba(0, 0, 0, 0.9) !important;
@@ -63,31 +54,6 @@ button {
 
 button:hover {
   color: var(--primary-clr) !important;
-}
-
-.nav li .submenu {
-  visibility: hidden;
-}
-
-.nav li:hover .submenu {
-  opacity: 1 !important;
-  visibility: inherit;
-  z-index: 1000;
-}
-
-.nav li .submenu li .submenu {
-  left: 150% !important;
-  opacity: 0 !important;
-}
-
-.nav li .submenu li:hover .submenu {
-  left: 100% !important;
-  opacity: 1 !important;
-  z-index: 1000;
-}
-
-.homeSlider {
-  background-color: none;
 }
 
 .swiper-navigation-icon {
@@ -121,20 +87,8 @@ button:hover {
   border-radius: 20px;
 }
 
-.HomeCatSlider .container .item:hover {
-  box-shadow: 2px 2px var(--primary-clr);
-}
-
-.HomeCatSlider .container .item:hover img {
-  transform: scale(1.2);
-}
-
 .swiper-pagination-bullet {
   background: var(--primary-clr) !important;
-}
-
-.CatSlider {
-  overflow: inherit !important;
 }
 
 .FreeShipping {

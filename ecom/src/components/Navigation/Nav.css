@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+.nav li .submenu {
+  visibility: hidden;
+}
+
+.nav li:hover .submenu {
+  opacity: 1 !important;
+  visibility: inherit;
+  z-index: 1000;
+}
+
+.nav li .submenu li .submenu {
+  left: 150% !important;
+  opacity: 0 !important;
+}
+
+.nav li .submenu li:hover .submenu {
+  left: 100% !important;
+  opacity: 1 !important;
+  z-index: 1000;
+}

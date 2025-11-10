@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import BlogItem from "../../components/BlogItem/BlogItem";
+import "../Home/Home.css";
 
 const Home = () => {
   const [value, setValue] = React.useState(0);

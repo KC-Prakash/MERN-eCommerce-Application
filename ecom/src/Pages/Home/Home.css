@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.MuiBadge-badge {
+  background-color: var(--primary-clr);
+  color: white;
+}
+
+.homeSlider {
+  background-color: none;
+}

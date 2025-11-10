@@ -161,7 +161,7 @@ const ProductList = () => {
                 </>
               )}
             </div>
-            <div className="flex mt-10 items-center justify-center">
+            <div className="flex mt-5 mb-2 items-center justify-center">
               <Pagination
                 count={10}
                 variant="outlined"

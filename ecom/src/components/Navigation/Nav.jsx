@@ -10,6 +10,7 @@ import { MdWatch } from "react-icons/md";
 import { RiBrushAiFill, RiMenu2Fill } from "react-icons/ri";
 import { GiDiamondRing, GiHeatHaze, GiConverseShoe, GiBeachBag } from "react-icons/gi";
 import DrawerPanel from '../Drawer/DrawerPanel';
+import "../Navigation/Nav.css";
 
 const Nav = () => {
 
