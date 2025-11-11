@@ -2,7 +2,7 @@ import React from "react";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import MainImage from "../../components/MainImage/MainImage";
-
+import Rating from "@mui/material/Rating";
 const ProdductDetail = () => {
   return (
     <>
@@ -33,6 +33,7 @@ const ProdductDetail = () => {
           <div className="productImage w-[29%]">
             <MainImage></MainImage>
           </div>
+          
         </div>
       </section>
     </>

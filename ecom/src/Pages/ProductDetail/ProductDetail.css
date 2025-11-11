@@ -23,3 +23,11 @@
     height: 40px !important;
     border-radius: 0px !important;
 }
+
+.parentImage .swiper-pagination.swiper-pagination-bullets-dynamic.swiper-pagination-bullets.swiper-pagination-horizontal{
+    padding: 0.6rem 20rem;
+    background: white !important;
+    position: absolute !important;
+    left: 130px !important;
+    bottom: 28px !important;
+}
