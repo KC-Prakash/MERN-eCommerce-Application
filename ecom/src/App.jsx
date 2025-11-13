@@ -11,6 +11,8 @@ import MainImage from "./components/MainImage/MainImage";
 import { IoCloseSharp } from "react-icons/io5";
 import Button from "@mui/material/Button";
 import ProductContent from "./Pages/ProductDetail/ProductContent";
+import Login from "./Pages/Authentication/Login";
+import Register from "./Pages/Authentication/Register";
 
 const MyContext = createContext();
 
@@ -22,7 +24,7 @@ function App() {
   };
 
   const values = {
-    setOpenProductDetailDialog
+    setOpenProductDetailDialog,
   };
 
   return (
@@ -41,6 +43,16 @@ function App() {
               path={"/productDetail/:id"}
               exact={true}
               element={<ProductDetail></ProductDetail>}
+            ></Route>
+            <Route
+              path={"/login"}
+              exact={true}
+              element={<Login></Login>}
+            ></Route>
+            <Route
+              path={"/register"}
+              exact={true}
+              element={<Register></Register>}
             ></Route>
           </Routes>
           <Footer></Footer>
@@ -77,4 +89,4 @@ function App() {
 
 export default App;
 
-export {MyContext}
+export { MyContext };
