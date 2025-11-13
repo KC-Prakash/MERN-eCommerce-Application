@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeSlider from "../../components/Slider/HomeSlider";
 import HomeCatSlider from "../../components/CatSlider/HomeCatSlider";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -14,7 +14,7 @@ import BlogItem from "../../components/BlogItem/BlogItem";
 import "../Home/Home.css";
 
 const Home = () => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

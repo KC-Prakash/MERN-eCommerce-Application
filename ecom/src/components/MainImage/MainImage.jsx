@@ -27,7 +27,7 @@ const MainImage = () => {
           spaceBetween={10}
           navigation={true}
           modules={[Navigation]}
-          className="zoomProductSliderThumbs h-[54.5vh] mt-8 overflow-hidden"
+          className="zoomProductSliderThumbs h-[54.5vh] overflow-hidden"
         >
           <SwiperSlide>
             <div className={`item w-[70px] transition-all duration-300 mt-13 ${slideIndex===0 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(0)}>
@@ -71,7 +71,7 @@ const MainImage = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="parentImage w-[85%] mt-8 overflow-hidden h-[455px] border-2 border-[#ff5252] rounded-[15px]">
+      <div className="parentImage w-[85%] overflow-hidden h-[455px] border-2 border-[#ff5252] rounded-[15px]">
         <Swiper
           ref={parentImg}
           slidesPerView={1}

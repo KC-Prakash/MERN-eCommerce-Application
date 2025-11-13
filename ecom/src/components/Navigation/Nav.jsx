@@ -42,7 +42,7 @@ const Nav = () => {
                             </Link>
                         </li>
                         <li className="list-none relative">
-                            <Link to={'/'}>
+                            <Link to={'/productList'}>
                                 <Button className='link transition-all duration-300 !font-[600]'>
                                     <FaShirt className='text-[16px] mr-0.5'></FaShirt>
                                         <p className='mt-0.5'>Fashion</p>
