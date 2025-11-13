@@ -4,7 +4,7 @@ import "../../Pages/ProductDetail/ProductDetail.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 
 const MainImage = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -30,43 +30,83 @@ const MainImage = () => {
           className="zoomProductSliderThumbs h-[54.5vh] overflow-hidden"
         >
           <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 mt-13 ${slideIndex===0 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(0)}>
+            <div
+              className={`item w-[70px] transition-all duration-300 mt-13 ${
+                slideIndex === 0 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(0)}
+            >
               <img src="../src/assets/Products/p1-2.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 ${slideIndex===1 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(1)}>
+            <div
+              className={`item w-[70px] transition-all duration-300 ${
+                slideIndex === 1 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(1)}
+            >
+              <img src="../src/assets/Products/p1.jpg" alt="" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              className={`item w-[70px] transition-all duration-300 ${
+                slideIndex === 2 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(2)}
+            >
+              <img src="../src/assets/Products/p2.jpg" alt="" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              className={`item w-[70px] transition-all duration-300 ${
+                slideIndex === 3 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(3)}
+            >
+              <img src="../src/assets/Products/p2-2.jpg" alt="" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              className={`item w-[70px] transition-all duration-300 ${
+                slideIndex === 4 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(4)}
+            >
+              <img src="../src/assets/Products/p1.jpg" alt="" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              className={`item w-[70px] transition-all duration-300 ${
+                slideIndex === 5 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(5)}
+            >
               <img src="../src/assets/Products/p1-2.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 ${slideIndex===2 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(2)}>
-              <img src="../src/assets/Products/p1-2.jpg" alt="" />
+            <div
+              className={`item w-[70px] transition-all duration-300 ${
+                slideIndex === 6 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(6)}
+            >
+              <img src="../src/assets/Products/p2.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 ${slideIndex===3 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(3)}>
-              <img src="../src/assets/Products/p1-2.jpg" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 ${slideIndex===4 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(4)}>
-              <img src="../src/assets/Products/p1-2.jpg" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 ${slideIndex===5 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(5)}>
-              <img src="../src/assets/Products/p1-2.jpg" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 ${slideIndex===6 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(6)}>
-              <img src="../src/assets/Products/p1-2.jpg" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`item w-[70px] transition-all duration-300 ${slideIndex===7 ? 'opacity-30':'opacity-100'}`} onClick={() => goto(7)}>
-              <img src="../src/assets/Products/p1-2.jpg" alt="" />
+            <div
+              className={`item w-[70px] transition-all duration-300 ${
+                slideIndex === 7 ? "opacity-30" : "opacity-100"
+              }`}
+              onClick={() => goto(7)}
+            >
+              <img src="../src/assets/Products/p2-2.jpg" alt="" />
             </div>
           </SwiperSlide>
         </Swiper>
@@ -76,35 +116,36 @@ const MainImage = () => {
           ref={parentImg}
           slidesPerView={1}
           spaceBetween={0}
+          effect={"fade"}
           pagination={{
             dynamicBullets: true,
           }}
           navigation={false}
-          modules={[Pagination]}
+          modules={[EffectFade, Pagination]}
         >
           <SwiperSlide>
             <img src="../src/assets/Products/p1-2.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="../src/assets/Products/p1-2.jpg" alt="" />
+            <img src="../src/assets/Products/p1.jpg" alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="../src/assets/Products/p2.jpg" alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="../src/assets/Products/p2-2.jpg" alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="../src/assets/Products/p1.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
             <img src="../src/assets/Products/p1-2.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="../src/assets/Products/p1-2.jpg" alt="" />
+            <img src="../src/assets/Products/p2.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="../src/assets/Products/p1-2.jpg" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="../src/assets/Products/p1-2.jpg" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="../src/assets/Products/p1-2.jpg" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="../src/assets/Products/p1-2.jpg" alt="" />
+            <img src="../src/assets/Products/p2-2.jpg" alt="" />
           </SwiperSlide>
         </Swiper>
       </div>

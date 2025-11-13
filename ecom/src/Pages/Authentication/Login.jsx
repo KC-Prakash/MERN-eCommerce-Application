@@ -78,8 +78,8 @@ const Login = () => {
               </Button>
             </div>
             <p className="transition-all duration-300 text-[14px] pl-1 pb-5 pt-[0.8] text-black font-[500]">
-              Not Registered?{" "}
-              <Link to={"/register"} className="text-[#ff5252]">
+              Not Registered?
+              <Link to={"/register"} className="text-[#ff5252] pl-2">
                 Sign Up Now
               </Link>
             </p>
