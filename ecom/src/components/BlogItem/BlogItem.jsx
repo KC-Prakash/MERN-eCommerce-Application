@@ -27,7 +27,7 @@ const BlogItem = () => {
               dolorum eveniet recusandae at sit nesciunt eligendi expedita
               distinctio, labore deserunt molestiae consectetur, asperiores ipsa
               sint?
-              <p className="text-[14px] font-bold text-justify inline"> ....</p>
+              <span className="text-[14px] font-bold text-justify inline"> ....</span>
             </p>
           </div>
         </Link>
