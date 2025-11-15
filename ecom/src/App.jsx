@@ -14,6 +14,7 @@ import ProductContent from "./Pages/ProductDetail/ProductContent";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
 import CartDrawer from "./components/CartDrawer/CartDrawer";
+import Cart from "./Pages/Cart/Cart";
 
 const MyContext = createContext();
 
@@ -64,6 +65,10 @@ function App() {
               path={"/register"}
               exact={true}
               element={<Register></Register>}
+            ></Route><Route
+              path={"/cart"}
+              exact={true}
+              element={<Cart></Cart>}
             ></Route>
           </Routes>
           <Footer></Footer>
