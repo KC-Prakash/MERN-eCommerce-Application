@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { LiaShippingFastSolid } from "react-icons/lia";
-import { IoCloseSharp, IoSync } from "react-icons/io5";
+import { IoSync } from "react-icons/io5";
 import { IoWalletOutline } from "react-icons/io5";
 import { IoGiftOutline } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
@@ -13,13 +13,8 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa6";
-import Drawer from "@mui/material/Drawer";
-import CartDrawer from "../CartDrawer/CartDrawer";
-import { MyContext } from "../../App";
 
 const Footer = () => {
-  const context = useContext(MyContext);
-
   return (
     <>
       <footer className=" bg-white">
@@ -221,27 +216,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-
-      <Drawer
-        open={context.openCartDrawer}
-        onClose={context.toggleCartDrawer(false)}
-        anchor="right"
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: "500px",
-          },
-        }}
-        className="cartDrawer"
-      >
-        <div className="flex items-center justify-between py-3 px-4 gap-3 border-b border-gray-300 overflow-hidden">
-          <h4 className="font-[600]">Shipping Cart (1)</h4>
-          <IoCloseSharp
-            className="text-[20px] cursor-pointer"
-            onClick={context.toggleCartDrawer(false)}
-          ></IoCloseSharp>
-        </div>
-        <CartDrawer></CartDrawer>
-      </Drawer>
     </>
   );
 };

@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import ProductContent from "./Pages/ProductDetail/ProductContent";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
+import CartDrawer from "./components/CartDrawer/CartDrawer";
 
 const MyContext = createContext();
 
@@ -24,7 +25,7 @@ function App() {
   const handleCloseProductDetailDialog = () => {
     setOpenProductDetailDialog(false);
   };
-  
+
   const toggleCartDrawer = (newOpen) => () => {
     setOpenCartDrawer(newOpen);
   };
@@ -41,6 +42,7 @@ function App() {
       <BrowserRouter>
         <MyContext.Provider value={values}>
           <Header></Header>
+          <CartDrawer></CartDrawer>
           <Routes>
             <Route path={"/"} exact={true} element={<Home></Home>}></Route>
             <Route
