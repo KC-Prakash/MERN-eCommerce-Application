@@ -284,7 +284,7 @@ const Checkout = () => {
               </div>
               <div className="flex items-center gap-3 justify-center pt-3 mb-5">
                 <Button className="btn-org !w-full !py-3 !font-bold hover:!bg-black hover:!text-white transition-all duration-300">
-                  LOGIN
+                  PROCEED TO PAY
                 </Button>
               </div>
             </form>
@@ -376,9 +376,6 @@ const Checkout = () => {
                   ₹2496
                 </span>
               </div>
-              <Button className="btn-org !py-2 !font-bold hover:!bg-black hover:!text-white transition-all duration-300 !w-full !my-1">
-                <Link to={"/checkout"}>Checkout</Link>
-              </Button>
             </div>
           </div>
         </div>

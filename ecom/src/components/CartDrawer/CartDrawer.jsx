@@ -400,12 +400,16 @@ const CartDrawer = () => {
           </div>
           <div className="button flex items-center justify-between gap-3 mx-3 mt-3">
             <Button className="btn-org !px-15 !py-2 !font-bold hover:!bg-black hover:!text-white transition-all duration-300 w-[50%]">
-              <Link to={"/cart"} onClick={context.toggleCartDrawer(false)}>
+              <Link
+                to={"/cart"}
+                onClick={context.toggleCartDrawer(false)}
+                className="w-full"
+              >
                 View Cart
               </Link>
             </Button>
             <Button className="btn-org !px-15 !py-2 !font-bold hover:!bg-black hover:!text-white transition-all duration-300 w-[50%]">
-              <Link to={"/checkout"} onClick={context.toggleCartDrawer(false)}>
+              <Link to={"/checkout"} onClick={context.toggleCartDrawer(false)} className="w-full">
                 Checkout
               </Link>
             </Button>

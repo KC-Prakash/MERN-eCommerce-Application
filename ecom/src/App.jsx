@@ -27,6 +27,8 @@ function App() {
 
   const [openCartDrawer, setOpenCartDrawer] = useState(false);
 
+  const [isLogin, setIsLogin] = useState(true);
+
   const openAlertBox = (status, msg) => {
     if (status === "success") {
       toast.success(msg);
@@ -50,6 +52,8 @@ function App() {
     toggleCartDrawer,
     openCartDrawer,
     openAlertBox,
+    isLogin,
+    setIsLogin,
   };
 
   return (
