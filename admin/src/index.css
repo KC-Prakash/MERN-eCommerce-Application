@@ -1,3 +1,152 @@
 @import "tailwindcss";
 
+:root {
+  --primary-clr: #ff5252;
+  --body-clr: #f5f0f0;
+}
 
+.primary {
+  color: var(--primary-clr);
+}
+
+.bg-body {
+  background-color: var(--body-clr);
+}
+
+.bg-primary {
+  background-color: var(--primary-clr);
+}
+
+body {
+  font-family: "Montserrat" sans-serif;
+  font-optical-sizing: auto;
+  background: var(--body-clr);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-clr);
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.link:hover {
+  color: var(--primary-clr);
+}
+
+button {
+  text-transform: capitalize !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+  background: none !important;
+}
+
+button:hover {
+  color: var(--primary-clr) !important;
+}
+
+.swiper-navigation-icon {
+  color: white;
+}
+
+.swiper-button-next {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-clr);
+  border-radius: 100%;
+  width: 45px;
+  min-width: 45px;
+  height: 45px;
+  box-shadow: 0 1px 2px var(--primary-clr);
+}
+
+.swiper-button-prev {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-clr);
+  border-radius: 100%;
+  width: 45px;
+  min-width: 45px;
+  height: 45px;
+  box-shadow: 0 1px 2px var(--primary-clr);
+}
+
+.css-1qltlow-MuiTabs-indicator {
+  background-color: var(--primary-clr) !important;
+}
+
+.css-120dh41-MuiSvgIcon-root {
+  fill: var(--primary-clr) !important;
+  font-size: 2rem !important;
+}
+.swiper-pagination {
+  margin-top: 20px !important;
+  position: relative !important;
+}
+
+.item {
+  border-radius: 20px;
+}
+
+.swiper-pagination-bullet {
+  background: var(--primary-clr) !important;
+}
+
+.FreeShipping {
+  border: 1.5px solid var(--primary-clr);
+}
+
+.btn-org {
+  background: var(--primary-clr) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+}
+
+.css-vuhw6e-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root {
+  color: var(--primary-clr) !important;
+}
+
+.css-rizt0-MuiTypography-root {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.itemViewActions button.active svg {
+  color: var(--primary-clr);
+}
+
+.MuiBadge-badge{
+  background: var(--primary-clr);
+  color: white;
+}
+
+.ReactCollapse--collapse {
+  transition: height 300ms;
+}
