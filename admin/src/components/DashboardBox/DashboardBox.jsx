@@ -57,7 +57,7 @@ const DashboardBox = () => {
                 </h3>
               </div>
               <div>
-                <RiMoneyRupeeCircleFill className="text-[50px] transition-all duration-300 group-hover:text-[#ff5252] group-hover:scale-110"></RiMoneyRupeeCircleFill>
+                <RiMoneyRupeeCircleFill className="text-[55px] transition-all duration-300 group-hover:text-[#ff5252] group-hover:scale-110"></RiMoneyRupeeCircleFill>
               </div>
             </div>
             <div>

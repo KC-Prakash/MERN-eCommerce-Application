@@ -34,8 +34,8 @@ const Header = () => {
   };
 
   return (
-    <>
-      <div className="bg-white py-2">
+    <div className="w-full fixed">
+      <div className="bg-white py-2 border-b border-b-gray-300">
         <div className="container flex justify-between">
           <div className="part1 w-[20%] flex">
             <Link to={"/"}>
@@ -132,7 +132,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
