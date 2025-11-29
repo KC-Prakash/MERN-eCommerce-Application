@@ -5,9 +5,7 @@ import Users from "./Pages/Users/Users";
 import HomeSlides from "./Pages/HomeSlides/HomeSlides";
 import HomeSlideList from "./Pages/HomeSlides/HomeSlideList";
 import HomeSlidesNew from "./Pages/HomeSlides/HomeSlidesNew";
-import ProductsItems from "./Pages/ProductsItems/ProductsItems";
-import ProductsItemsList from "./Pages/ProductsItems/ProductsItemsList";
-import ProductsItemsNew from "./Pages/ProductsItems/ProductsItemsNew";
+import ProductsItemsNew from "./Pages/ProductsData/ProductsItemsNew";
 import Categories from "./Pages/Category/Categories";
 import CategoriesList from "./Pages/Category/CategoriesList";
 import CategoriesNew from "./Pages/Category/CategoriesNew";
@@ -15,6 +13,8 @@ import SubCategories from "./Pages/SubCategory/SubCategories";
 import SubCategoriesList from "./Pages/SubCategory/SubCategoriesList";
 import SubCategoriesNew from "./Pages/SubCategory/SubCategoriesNew";
 import Orders from "./Pages/Orders/Orders";
+import ProductsData from "./Pages/ProductsData/ProductsData";
+import UsersNew from "./Pages/Users/UsersNew";
 
 function App() {
   return (
@@ -48,15 +48,11 @@ function App() {
             element={<HomeSlidesNew></HomeSlidesNew>}
           ></Route>
           <Route path={"/users"} exact={true} element={<Users></Users>}></Route>
+          <Route path={"/users-new"} exact={true} element={<UsersNew></UsersNew>}></Route>
           <Route
-            path={"/products"}
+            path={"/products-data"}
             exact={true}
-            element={<ProductsItems></ProductsItems>}
-          ></Route>
-          <Route
-            path={"/products-list"}
-            exact={true}
-            element={<ProductsItemsList></ProductsItemsList>}
+            element={<ProductsData></ProductsData>}
           ></Route>
           <Route
             path={"/products-new"}

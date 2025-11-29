@@ -108,45 +108,17 @@ const Sidebar = () => {
             </li>
             <li className="w-full py-1">
               <NavLink
-                to={"/products"}
+                to={"/products-data"}
                 exact={"true"}
                 activeclassname="isActive"
               >
                 <Button
-                  onClick={() => isOpenSubmenu(1)}
                   className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300"
                 >
                   <FaProductHunt className="text-[20px] mr-2"></FaProductHunt>
                   <span>Products</span>
-                  {submenuIndex === 1 ? (
-                    <FaAngleUp className="ml-auto"></FaAngleUp>
-                  ) : (
-                    <FaAngleDown className="ml-auto"></FaAngleDown>
-                  )}
                 </Button>
               </NavLink>
-              <Collapse isOpened={submenuIndex === 1 ? true : false}>
-                <div>
-                  <ul className="w-full">
-                    <li className="pt-1">
-                      <Link to={"/products-list"}>
-                        <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !pl-19 !text-[14px] !font-[400] transition-all duration-300">
-                          <MdViewList className="text-[20px] mr-0"></MdViewList>
-                          <span>Products List</span>
-                        </Button>
-                      </Link>
-                    </li>
-                    <li className="pt-1">
-                      <Link to={"/products-new"}>
-                        <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !pl-19 !text-[14px] !font-[400] transition-all duration-300">
-                          <FaCirclePlus className="text-[18px] mr-0.5"></FaCirclePlus>
-                          <span>Add New Product</span>
-                        </Button>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </Collapse>
             </li>
             <li className="w-full py-1">
               <NavLink

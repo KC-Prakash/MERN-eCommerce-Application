@@ -4,6 +4,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableContainer from "@mui/material/TableContainer";
+import { Link } from "react-router-dom";
 import TableBody from "@mui/material/TableBody";
 import Rating from "@mui/material/Rating";
 import Checkbox from "@mui/material/Checkbox";
@@ -13,14 +14,14 @@ import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import Tooltip from "@mui/material/Tooltip";
 
-const ProductsList = () => {
+const UsersList = () => {
   const label = { slotProps: { input: { "aria-label": "Checkbox demo" } } };
 
   return (
     <div>
       <div>
         <h1 className="text-[18px] font-black text-white bg-black p-1 pl-4 rounded-md my-3">
-          PRODUCTS{" "}
+          Users{" "}
         </h1>
       </div>
       <TableContainer
@@ -44,15 +45,14 @@ const ProductsList = () => {
               </TableCell>
               <TableCell className=" !text-[14px] !font-bold">S.I</TableCell>
               <TableCell className=" !text-[14px] !font-bold">
-                Product ID
+                User ID
               </TableCell>
               <TableCell className=" !text-[14px] !font-bold">Name</TableCell>
               <TableCell className=" !text-[14px] !font-bold">Image</TableCell>
-              <TableCell className=" !text-[14px] !font-bold">Rating</TableCell>
-              <TableCell className=" !text-[14px] !font-bold">Stock</TableCell>
-              <TableCell className=" !text-[14px] !font-bold">Price</TableCell>
-              <TableCell className=" !text-[14px] !font-bold">Sales</TableCell>
-              <TableCell className=" !text-[14px] !font-bold">Brand</TableCell>
+              <TableCell className=" !text-[14px] !font-bold">Mobile</TableCell>
+              <TableCell className=" !text-[14px] !font-bold">Email</TableCell>
+              <TableCell className=" !text-[14px] !font-bold">DOB</TableCell>
+              <TableCell className=" !text-[14px] !font-bold">Age</TableCell>
               <TableCell className=" !text-[14px] !font-bold">Action</TableCell>
             </TableRow>
           </TableHead>
@@ -63,42 +63,30 @@ const ProductsList = () => {
               </TableCell>
               <TableCell className="!text-[14px] !font-bold">1</TableCell>
               <TableCell className="ProdductID !text-[#ff5252] !text-[14px] !font-bold">
-                PP652357
+                UI521
               </TableCell>
               <TableCell className=" !text-[14px] !font-bold">
-                TAGDO Gray Shirt | Casual Shirt
+                Mohammed Shafeek A
               </TableCell>
               <TableCell className="!text-[14px] !font-bold">
                 <img
-                  src="../../../src/assets/Products/p2-2.jpg"
+                  src="../../../src/assets/Users/shafeek77.png"
                   alt=""
-                  className="object-contain w-[60px] h-[60px]"
+                  className="object-contain w-[60px] h-[60px] rounded-full border border-gray-300"
                 />
               </TableCell>
               <TableCell>
-                <Rating
-                  name="size-small"
-                  defaultValue={2}
-                  size="small"
-                  readOnly
-                />
+                <h1 className="!text-[14px] !font-bold">*******654</h1>
               </TableCell>
-              <TableCell className=" !text-[14px] !font-bold">120</TableCell>
-              <TableCell>
-                <h1 className="line-through flex items-center justify-center !text-[14px] !font-[500]">
-                  899
-                </h1>
-                <h1 className="text-green-600 px-2 flex items-center justify-center rounded-sm bg-green-200 !text-[16px] !font-black">
-                  399
-                </h1>
+              <TableCell className=" !text-[14px] !font-bold">
+                amdshafeek7@gmail.com
               </TableCell>
               <TableCell>
-                <p className="text-[13px] font-[500]">
-                  <span className="pr-1 font-bold">128</span>Sales
-                </p>
-                <ProgressBar value={20}></ProgressBar>
+                <h1 className="!text-[14px] !font-bold">30/08/2004</h1>
               </TableCell>
-              <TableCell className=" !text-[14px] !font-bold">TAGDO</TableCell>
+              <TableCell>
+                <h1 className="!text-[14px] !font-bold">21</h1>
+              </TableCell>
               <TableCell>
                 <Tooltip title="Edit">
                   <Button className="!w-[35px] !h-[35px] !min-w-[35px] !mr-3 !rounded-full !text-blue-700 !bg-blue-200">
@@ -116,44 +104,32 @@ const ProductsList = () => {
               <TableCell>
                 <Checkbox {...label} />
               </TableCell>
-              <TableCell className="!text-[14px] !font-bold">2</TableCell>
+              <TableCell className="!text-[14px] !font-bold">1</TableCell>
               <TableCell className="ProdductID !text-[#ff5252] !text-[14px] !font-bold">
-                PP652357
+                UI521
               </TableCell>
               <TableCell className=" !text-[14px] !font-bold">
-                TAGDO Gray Shirt | Casual Shirt
+                Mohammed Shafeek A
               </TableCell>
               <TableCell className="!text-[14px] !font-bold">
                 <img
-                  src="../../../src/assets/Products/p2-2.jpg"
+                  src="../../../src/assets/Users/shafeek77.png"
                   alt=""
-                  className="object-contain w-[60px] h-[60px]"
+                  className="object-contain w-[60px] h-[60px] rounded-full border border-gray-300"
                 />
               </TableCell>
               <TableCell>
-                <Rating
-                  name="size-small"
-                  defaultValue={2}
-                  size="small"
-                  readOnly
-                />
+                <h1 className="!text-[14px] !font-bold">*******654</h1>
               </TableCell>
-              <TableCell className=" !text-[14px] !font-bold">120</TableCell>
-              <TableCell>
-                <h1 className="line-through flex items-center justify-center !text-[14px] !font-[500]">
-                  899
-                </h1>
-                <h1 className="text-green-600 px-2 flex items-center justify-center rounded-sm bg-green-200 !text-[16px] !font-black">
-                  399
-                </h1>
+              <TableCell className=" !text-[14px] !font-bold">
+                amdshafeek7@gmail.com
               </TableCell>
               <TableCell>
-                <p className="text-[13px] font-[500]">
-                  <span className="pr-1 font-bold">254</span>Sales
-                </p>
-                <ProgressBar value={80}></ProgressBar>
+                <h1 className="!text-[14px] !font-bold">30/08/2004</h1>
               </TableCell>
-              <TableCell className=" !text-[14px] !font-bold">TAGDO</TableCell>
+              <TableCell>
+                <h1 className="!text-[14px] !font-bold">21</h1>
+              </TableCell>
               <TableCell>
                 <Tooltip title="Edit">
                   <Button className="!w-[35px] !h-[35px] !min-w-[35px] !mr-3 !rounded-full !text-blue-700 !bg-blue-200">
@@ -174,4 +150,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default UsersList;

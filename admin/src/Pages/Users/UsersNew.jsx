@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar/Sidebar'
 
-const ProductsItems = () => {
+const UsersNew = () => {
   return (
     <section>
       <div className="container flex pt-10">
@@ -14,4 +14,4 @@ const ProductsItems = () => {
   )
 }
 
-export default ProductsItems
+export default UsersNew
