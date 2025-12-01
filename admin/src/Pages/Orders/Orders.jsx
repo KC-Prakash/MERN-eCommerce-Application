@@ -31,7 +31,7 @@ const Orders = () => {
         <div className="sidebarWrapper w-[80%] my-7 h-full">
           <div className="flex items-center w-full gap-2">
             <div className="w-[100%]">
-              <Search placeHolder="Search Users by Mobile Number or EMail"></Search>
+              <Search placeHolder="Search Order by OrderID"></Search>
             </div>
           </div>
           <div>
