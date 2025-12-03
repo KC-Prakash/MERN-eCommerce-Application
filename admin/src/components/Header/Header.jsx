@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
@@ -9,6 +9,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import { IoIosLogOut } from "react-icons/io";
+import { MyContext } from "../../App";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -27,6 +28,12 @@ const Header = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const context = useContext(MyContext);
+
+  const logout = () => {
+    context.setIsLogin(false);
   };
 
   return (
@@ -104,7 +111,7 @@ const Header = () => {
                       </MenuItem>
                     </Link>
                     <Divider></Divider>
-                    <Link to={"/logout"}>
+                    <Link to={"/logout"} onClick={logout}>
                       <MenuItem
                         onClick={handleClose}
                         className="flex gap-2 !text-[16px] !font-[500] hover:!bg-[#ff5252] hover:!text-white transition-all duration-75"

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "@mui/material/Button";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { IoIosLogOut } from "react-icons/io";
 import { BiSolidDashboard } from "react-icons/bi";
 import { FaImages } from "react-icons/fa";
@@ -14,8 +14,11 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { MdViewList } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import "./Sidebar.css";
+import { MyContext } from "../../App";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const context = useContext(MyContext);
   const [submenuIndex, setSubmenuIndex] = useState(null);
 
   const isOpenSubmenu = (index) => {
@@ -24,6 +27,11 @@ const Sidebar = () => {
     } else {
       setSubmenuIndex(index);
     }
+  };
+
+  const logout = () => {
+    context.setIsLogin(false);
+    navigate("/login");
   };
 
   return (
@@ -112,9 +120,7 @@ const Sidebar = () => {
                 exact={"true"}
                 activeclassname="isActive"
               >
-                <Button
-                  className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300"
-                >
+                <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300">
                   <FaProductHunt className="text-[20px] mr-2"></FaProductHunt>
                   <span>Products</span>
                 </Button>
@@ -213,8 +219,11 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li className="w-full py-1">
-              <NavLink to={"/logout"} exact={"true"} activeclassname="isActive">
-                <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300">
+              <NavLink to={"/logout"}>
+                <Button
+                  onClick={logout}
+                  className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300"
+                >
                   <IoIosLogOut className="text-[22px] mr-2"></IoIosLogOut>
                   <span>Logout</span>
                 </Button>

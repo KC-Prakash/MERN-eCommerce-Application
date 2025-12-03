@@ -15,86 +15,89 @@ import SubCategoriesNew from "./Pages/SubCategory/SubCategoriesNew";
 import Orders from "./Pages/Orders/Orders";
 import ProductsData from "./Pages/ProductsData/ProductsData";
 import UsersNew from "./Pages/Users/UsersNew";
+import { createContext, useState } from "react";
+import Login from "./Pages/Authentication/Login";
+
+export const MyContext = createContext();
 
 function App() {
+  const [isLogin, setIsLogin] = useState(true);
+
+  const values = {
+    isLogin,
+    setIsLogin,
+  };
+
   return (
     <>
       <BrowserRouter>
-        <Header></Header>
-        <Routes>
-          <Route
-            path={"/"}
-            exact={true}
-            element={<Dashboard></Dashboard>}
-          ></Route>
-          <Route
-            path={"/dashboard"}
-            exact={true}
-            element={<Dashboard></Dashboard>}
-          ></Route>
-          <Route
-            path={"/home-slides"}
-            exact={true}
-            element={<HomeSlides></HomeSlides>}
-          ></Route>
-          <Route
-            path={"/home-slides/list"}
-            exact={true}
-            element={<HomeSlideList></HomeSlideList>}
-          ></Route>
-          <Route
-            path={"/home-slides/new"}
-            exact={true}
-            element={<HomeSlidesNew></HomeSlidesNew>}
-          ></Route>
-          <Route path={"/users"} exact={true} element={<Users></Users>}></Route>
-          <Route path={"/users-new"} exact={true} element={<UsersNew></UsersNew>}></Route>
-          <Route
-            path={"/products-data"}
-            exact={true}
-            element={<ProductsData></ProductsData>}
-          ></Route>
-          <Route
-            path={"/products-new"}
-            exact={true}
-            element={<ProductsItemsNew></ProductsItemsNew>}
-          ></Route>
-          <Route
-            path={"/categories"}
-            exact={true}
-            element={<Categories></Categories>}
-          ></Route>
-          <Route
-            path={"/categories-list"}
-            exact={true}
-            element={<CategoriesList></CategoriesList>}
-          ></Route>
-          <Route
-            path={"/categories-new"}
-            exact={true}
-            element={<CategoriesNew></CategoriesNew>}
-          ></Route>
-          <Route
-            path={"/sub-categories"}
-            exact={true}
-            element={<SubCategories></SubCategories>}
-          ></Route>
-          <Route
-            path={"/sub-categories-list"}
-            exact={true}
-            element={<SubCategoriesList></SubCategoriesList>}
-          ></Route>
-          <Route
-            path={"/sub-categories-new"}
-            exact={true}
-            element={<SubCategoriesNew></SubCategoriesNew>}
-          ></Route>
-          <Route
-            path={"/orders"}
-            exact={true}
-            element={<Orders></Orders>}
-          ></Route>
-        </Routes>
+        <MyContext.Provider value={values}>
+          {isLogin === true ? (
+            <>
+              <Header></Header>
+              <Routes>
+                <Route path={"/"} element={<Dashboard></Dashboard>}></Route>
+                <Route
+                  path={"/dashboard"}
+                  element={<Dashboard></Dashboard>}
+                ></Route>
+                <Route
+                  path={"/home-slides"}
+                  element={<HomeSlides></HomeSlides>}
+                ></Route>
+                <Route
+                  path={"/home-slides/list"}
+                  element={<HomeSlideList></HomeSlideList>}
+                ></Route>
+                <Route
+                  path={"/home-slides/new"}
+                  element={<HomeSlidesNew></HomeSlidesNew>}
+                ></Route>
+                <Route path={"/users"} element={<Users></Users>}></Route>
+                <Route
+                  path={"/users-new"}
+                  element={<UsersNew></UsersNew>}
+                ></Route>
+                <Route
+                  path={"/products-data"}
+                  element={<ProductsData></ProductsData>}
+                ></Route>
+                <Route
+                  path={"/products-new"}
+                  element={<ProductsItemsNew></ProductsItemsNew>}
+                ></Route>
+                <Route
+                  path={"/categories"}
+                  element={<Categories></Categories>}
+                ></Route>
+                <Route
+                  path={"/categories-list"}
+                  element={<CategoriesList></CategoriesList>}
+                ></Route>
+                <Route
+                  path={"/categories-new"}
+                  element={<CategoriesNew></CategoriesNew>}
+                ></Route>
+                <Route
+                  path={"/sub-categories"}
+                  element={<SubCategories></SubCategories>}
+                ></Route>
+                <Route
+                  path={"/sub-categories-list"}
+                  element={<SubCategoriesList></SubCategoriesList>}
+                ></Route>
+                <Route
+                  path={"/sub-categories-new"}
+                  element={<SubCategoriesNew></SubCategoriesNew>}
+                ></Route>
+                <Route path={"/orders"} element={<Orders></Orders>}></Route>
+                <Route path={"/logout"} element={<Login></Login>}></Route>
+              </Routes>
+            </>
+          ) : (
+            <Login></Login>
+          )}
+        </MyContext.Provider>
       </BrowserRouter>
     </>
   );
