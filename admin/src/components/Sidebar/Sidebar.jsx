@@ -98,89 +98,17 @@ const Sidebar = () => {
                 </Button>
               </NavLink>
             </li>
-            <li className="w-full py-1">
+            <li className="Category w-full py-1">
               <NavLink
                 to={"/categories"}
                 exact={"true"}
                 activeclassname="isActive"
               >
-                <Button
-                  onClick={() => isOpenSubmenu(2)}
-                  className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300"
-                >
-                  <TbCategoryFilled className="text-[22px] mr-1.5"></TbCategoryFilled>
-                  <span>Category</span>
-                  {submenuIndex === 2 ? (
-                    <FaAngleUp className="ml-auto"></FaAngleUp>
-                  ) : (
-                    <FaAngleDown className="ml-auto"></FaAngleDown>
-                  )}
+                <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300">
+                  <TbCategoryFilled className="text-[20px] mr-2"></TbCategoryFilled>
+                  <span>Categories</span>
                 </Button>
               </NavLink>
-              <Collapse isOpened={submenuIndex === 2 ? true : false}>
-                <div>
-                  <ul className="w-full">
-                    <li className="pt-1">
-                      <Link to={"/categories-list"}>
-                        <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !pl-19 !text-[14px] !font-[400] transition-all duration-300">
-                          <MdViewList className="text-[20px] mr-0"></MdViewList>
-                          <span>Category List</span>
-                        </Button>
-                      </Link>
-                    </li>
-                    <li className="pt-1">
-                      <Link to={"/categories-new"}>
-                        <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !pl-19 !text-[14px] !font-[400] transition-all duration-300">
-                          <FaCirclePlus className="text-[18px] mr-0.5"></FaCirclePlus>
-                          <span>Add New Category</span>
-                        </Button>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </Collapse>
-            </li>
-            <li className="w-full py-1">
-              <NavLink
-                to={"/sub-categories"}
-                exact={"true"}
-                activeclassname="isActive"
-              >
-                <Button
-                  onClick={() => isOpenSubmenu(3)}
-                  className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !text-[16px] !font-[600] transition-all duration-300"
-                >
-                  <TbCategoryFilled className="text-[22px] mr-1.5"></TbCategoryFilled>
-                  <span>Sub-Category</span>
-                  {submenuIndex === 3 ? (
-                    <FaAngleUp className="ml-auto"></FaAngleUp>
-                  ) : (
-                    <FaAngleDown className="ml-auto"></FaAngleDown>
-                  )}
-                </Button>
-              </NavLink>
-              <Collapse isOpened={submenuIndex === 3 ? true : false}>
-                <div>
-                  <ul className="w-full">
-                    <li className="pt-1">
-                      <Link to={"/sub-categories-list"}>
-                        <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !pl-19 !text-[14px] !font-[400] transition-all duration-300">
-                          <MdViewList className="text-[20px] mr-0"></MdViewList>
-                          <span>Sub-Category List</span>
-                        </Button>
-                      </Link>
-                    </li>
-                    <li className="pt-1">
-                      <Link to={"/sub-categories-new"}>
-                        <Button className="w-full !link !py-1 !transition-all !duration-300 !rounded-none gap-2 !items-center !justify-start !px-10 !pl-19 !text-[14px] !font-[400] transition-all duration-300">
-                          <FaCirclePlus className="text-[18px] mr-0.5"></FaCirclePlus>
-                          <span>Add New Sub-Category</span>
-                        </Button>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </Collapse>
             </li>
             <li className="Orders w-full py-1">
               <NavLink to={"/orders"} exact={"true"} activeclassname="isActive">

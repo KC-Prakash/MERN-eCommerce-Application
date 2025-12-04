@@ -63,7 +63,7 @@ const HomeSlidesNew = () => {
                 </div>
               </div>
               <p className="transition-all duration-300 text-[14px] text-black font-bold mb-2">
-                Product Category & Price
+                Slider Name & Category
               </p>
               <div className="flex items-center justify-center gap-3">
                 <div className="name w-[70%]">

@@ -7,7 +7,13 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 
-const CategoriesNew = () => {
+const SubCategoriesNew = () => {
+  const [category, setCategory] = useState("");
+
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
+  };
+
   return (
     <section>
       <div className="container flex pt-10">
@@ -22,10 +28,54 @@ const CategoriesNew = () => {
 
             <form className="w-full container mt-5 pt-3 my-3">
               <p className="transition-all duration-300 text-[14px] text-black font-bold mb-2">
-                New Category
+                Select Parent and add New Sub-Category
               </p>
               <div className="flex items-center justify-center gap-3">
-                <div className="name w-full">
+                <div className="Category w-[30%]">
+                  <div className="Category mb-2">
+                    <FormControl
+                      fullWidth
+                      sx={{
+                        "& .MuiInputLabel-root.Mui-focused": {
+                          color: "#ff5252",
+                        },
+                        transition: "all 0.3s",
+                      }}
+                    >
+                      <InputLabel id="demo-simple-select-label">
+                        Select Category
+                      </InputLabel>
+
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={category}
+                        label="Product Category"
+                        onChange={handleCategory}
+                        sx={{
+                          "&:hover .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#ff5252",
+                            transition: "all 0.3s",
+                          },
+                          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#ff5252",
+                            transition: "all 0.3s",
+                          },
+                        }}
+                      >
+                        <MenuItem value={"Fashion"}>Fashion</MenuItem>
+                        <MenuItem value={"Electronics"}>Electronics</MenuItem>
+                        <MenuItem value={"Accessories"}>Accessories</MenuItem>
+                        <MenuItem value={"Bags"}>Bags</MenuItem>
+                        <MenuItem value={"Footwear"}>Footwear</MenuItem>
+                        <MenuItem value={"Beauty"}>Beauty</MenuItem>
+                        <MenuItem value={"Jewellery"}>Jewellery</MenuItem>
+                        <MenuItem value={"Wellness"}>Wellness</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                </div>
+                <div className="name w-[70%]">
                   <div className="name mb-2">
                     <TextField
                       type="text"
@@ -70,4 +120,4 @@ const CategoriesNew = () => {
   );
 };
 
-export default CategoriesNew;
+export default SubCategoriesNew;

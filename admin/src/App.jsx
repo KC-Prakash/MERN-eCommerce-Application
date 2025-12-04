@@ -6,15 +6,14 @@ import HomeSlides from "./Pages/HomeSlides/HomeSlides";
 import HomeSlidesNew from "./Pages/HomeSlides/HomeSlidesNew";
 import ProductsItemsNew from "./Pages/ProductsData/ProductsItemsNew";
 import Categories from "./Pages/Category/Categories";
-import CategoriesList from "./Pages/Category/CategoriesList";
 import CategoriesNew from "./Pages/Category/CategoriesNew";
-import SubCategories from "./Pages/SubCategory/SubCategories";
-import SubCategoriesList from "./Pages/SubCategory/SubCategoriesList";
-import SubCategoriesNew from "./Pages/SubCategory/SubCategoriesNew";
+import SubCategoriesNew from "./Pages/Category/SubCategoriesNew";
 import Orders from "./Pages/Orders/Orders";
 import ProductsData from "./Pages/ProductsData/ProductsData";
 import { createContext, useState } from "react";
 import Login from "./Pages/Authentication/Login";
+import CategoriesList from "./components/Categories/CategoriesList";
+import SubCategoriesList from "./components/Categories/SubCategoriesList";
 
 export const MyContext = createContext();
 
@@ -61,24 +60,20 @@ function App() {
                   element={<Categories></Categories>}
                 ></Route>
                 <Route
-                  path={"/categories-list"}
-                  element={<CategoriesList></CategoriesList>}
-                ></Route>
-                <Route
                   path={"/categories-new"}
                   element={<CategoriesNew></CategoriesNew>}
                 ></Route>
                 <Route
-                  path={"/sub-categories"}
-                  element={<SubCategories></SubCategories>}
+                  path={"/sub-categories-new"}
+                  element={<SubCategoriesNew></SubCategoriesNew>}
+                ></Route>
+                <Route
+                  path={"/categories-list"}
+                  element={<CategoriesList></CategoriesList>}
                 ></Route>
                 <Route
                   path={"/sub-categories-list"}
                   element={<SubCategoriesList></SubCategoriesList>}
-                ></Route>
-                <Route
-                  path={"/sub-categories-new"}
-                  element={<SubCategoriesNew></SubCategoriesNew>}
                 ></Route>
                 <Route path={"/orders"} element={<Orders></Orders>}></Route>
                 <Route path={"/logout"} element={<Login></Login>}></Route>

@@ -1,17 +1,82 @@
-import React from 'react'
-import Sidebar from '../../components/Sidebar/Sidebar'
+import React from "react";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Pagination from "@mui/material/Pagination";
+import { FaCirclePlus } from "react-icons/fa6";
+import Search from "../../components/Search/Search";
+import { useNavigate } from "react-router-dom";
+import CategoriesList from "../../components/Categories/CategoriesList";
+import SubCategoriesList from "../../components/Categories/SubCategoriesList";
 
 const Categories = () => {
+  const navigate = useNavigate();
   return (
     <section>
       <div className="container flex pt-10">
         <div className="sidebarWrapper h-full w-[20%] bg-white">
           <Sidebar></Sidebar>
         </div>
-        <div className="sidebarWrapper w-[80%] my-7 h-full"></div>
+        <div className="sidebarWrapper w-[80%] my-7 h-full">
+          <div className="flex items-center w-full gap-3">
+            <div className="flex gap-2 w-[50%]">
+              <div
+                onClick={() => {
+                  navigate("/categories-new");
+                }}
+                className="flex w-[50%] items-center h-[50px] min-h-[50px] add bg-black cursor-pointer gap-2 py-1 justify-center rounded-md"
+              >
+                <FaCirclePlus className="text-white text-[28px]"></FaCirclePlus>
+                <h1 className="text-white text-[18px] font-bold">
+                  Add New Category
+                </h1>
+              </div>
+              <div
+                onClick={() => {
+                  navigate("/sub-categories-new");
+                }}
+                className="flex w-[50%] items-center h-[50px] min-h-[50px] add bg-black cursor-pointer gap-2 py-1 justify-center rounded-md"
+              >
+                <FaCirclePlus className="text-white text-[28px]"></FaCirclePlus>
+                <h1 className="text-white text-[18px] font-bold">
+                  Add New Sub-Category
+                </h1>
+              </div>
+            </div>
+            <div className="w-[50%]">
+              <Search placeHolder="Search Category by Name"></Search>
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <div className="w-[50%]">
+              <div className="categoryWrapper w-full">
+                <CategoriesList></CategoriesList>
+                <div className="flex mt-5 mb-10 items-center justify-center">
+                  <Pagination
+                    count={10}
+                    variant="outlined"
+                    showFirstButton
+                    showLastButton
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="w-[50%]">
+              <div className="categoryWrapper w-full">
+                <SubCategoriesList></SubCategoriesList>
+                <div className="flex mt-5 mb-10 items-center justify-center">
+                  <Pagination
+                    count={10}
+                    variant="outlined"
+                    showFirstButton
+                    showLastButton
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;
