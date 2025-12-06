@@ -10,7 +10,7 @@ const HomeCatSlider = () => {
   return (
     <>
       <div className="HomeCatSlider py-5">
-        <div className="container">
+        <div className="container overflow-x-hidden">
           <Swiper
             slidesPerView={6}
             spaceBetween={20}

@@ -20,3 +20,6 @@
   opacity: 1 !important;
   z-index: 1000;
 }
+
+.nav::-webkit-scrollbar { display: none; }
+.nav { -ms-overflow-style: none; scrollbar-width: none; }

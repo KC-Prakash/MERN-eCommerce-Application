@@ -40,8 +40,8 @@ const Nav = () => {
               <LiaAngleDownSolid className="text-[15px] font-bold ml-2 mr-3"></LiaAngleDownSolid>
             </Button>
           </div>
-          <div className="col_2 w-[70%] border-r-[1px] border-gray-300 ml-8">
-            <ul className="flex items-center gap-5 nav">
+          <div className="col_2 w-[75%] border-r border-gray-300">
+            <ul className="flex items-center gap-2 nav overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide">
               <li className="list-none">
                 <Link to={"/"}>
                   <Button className="link transition-all duration-300 !font-[600]">
@@ -57,7 +57,7 @@ const Nav = () => {
                     <p className="mt-0.5">Fashion</p>
                   </Button>
                 </Link>
-                <div className="submenu absolute top-[100%] left-[0%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300-all">
+                <div className="submenu absolute top-[100%] left-[0%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300">
                   <ul>
                     <li className="list-none w-full">
                       <Link to={"/"}>
@@ -65,7 +65,7 @@ const Nav = () => {
                           Mens
                         </Button>
                       </Link>
-                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300-all">
+                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300">
                         <ul>
                           <li className="list-none w-full">
                             <Link to={"/"}>
@@ -104,7 +104,7 @@ const Nav = () => {
                           Womens
                         </Button>
                       </Link>
-                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300-all">
+                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300">
                         <ul>
                           <li className="list-none w-full">
                             <Link to={"/"}>
@@ -143,7 +143,7 @@ const Nav = () => {
                           Kids
                         </Button>
                       </Link>
-                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300-all">
+                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300">
                         <ul>
                           <li className="list-none w-full">
                             <Link to={"/"}>
@@ -182,7 +182,7 @@ const Nav = () => {
                           Babies
                         </Button>
                       </Link>
-                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300-all">
+                      <div className="submenu absolute top-[0%] left-[100%] min-w-[160px] bg-white shadow-md opacity-0 transition-all duration-300">
                         <ul>
                           <li className="list-none w-full">
                             <Link to={"/"}>
@@ -276,10 +276,10 @@ const Nav = () => {
               </li>
             </ul>
           </div>
-          <div className="col_3 w-[15.5%] ml-11 justify-end">
-            <p className="text-[14px] font-[500] flex items-center gap-3">
-              <FaTruckMoving className="text-[20px] mt-0.5"></FaTruckMoving>Free
-              Delivery Across India
+          <div className="col_3 w-[15.5%] ml-3 flex items-center justify-start">
+            <FaTruckMoving className="text-blue-600 text-xl mr-2" />
+            <p className="text-gray-800 font-medium text-sm md:text-base">
+              Free Delivery
             </p>
           </div>
         </div>
