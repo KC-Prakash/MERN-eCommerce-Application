@@ -14,8 +14,8 @@ const Verify = () => {
     e.preventDefault();
   };
   return (
-    <section className="section py-10">
-      <div className="container">
+    <section className="section min-h-screen flex justify-center items-center">
+      <div className="container flex justify-center">
         <div className="card shadow-md w-[500px] m-auto rounded-md bg-white p-5 px-8">
           <div className="flex flex-col items-center justify-center gap-1 my-3">
             <AiFillSafetyCertificate className="text-[50px] text-[#ff5252]"></AiFillSafetyCertificate>

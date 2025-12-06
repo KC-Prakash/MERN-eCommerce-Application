@@ -6,9 +6,9 @@ import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   return (
-    <section className="section py-10">
-      <div className="container">
-        <div className="card shadow-md w-[500px] m-auto rounded-md bg-white p-5 px-8">
+    <section className="section min-h-screen flex justify-center items-center">
+      <div className="container flex justify-center">
+        <div className="card shadow-md w-[400px] md:w-[600px] lg:w-[900px] m-auto rounded-md bg-white p-5 px-8">
           <h3 className="text-center text-[20px] font-[500]">
             Register with new Account
           </h3>
@@ -126,7 +126,7 @@ const Register = () => {
             </div>
             <p className="transition-all duration-300 text-[14px] pl-1 pb-5 pt-[0.8] text-black font-[500]">
               Already have an Account?
-              <Link to={"/register"} className="text-[#ff5252] pl-2">
+              <Link to={"/login"} className="text-[#ff5252] pl-2">
                 Log In Now
               </Link>
             </p>

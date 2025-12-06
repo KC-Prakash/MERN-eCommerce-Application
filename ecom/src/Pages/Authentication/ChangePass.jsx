@@ -6,15 +6,14 @@ import { FcGoogle } from "react-icons/fc";
 import { MyContext } from "../../App";
 
 const ChangePass = () => {
-
-  const context = useContext(MyContext)
+  const context = useContext(MyContext);
 
   const history = useNavigate();
 
   return (
-    <section className="section py-10">
-      <div className="container">
-        <div className="card shadow-md w-[500px] m-auto rounded-md bg-white p-5 px-8">
+    <section className="section min-h-screen flex justify-center items-center">
+      <div className="container flex justify-center">
+        <div className="card shadow-md w-[400px] md:w-[600px] lg:w-[900px] m-auto rounded-md bg-white p-5 px-8">
           <h3 className="text-center text-[20px] mb-5 font-[500]">
             Reset Password
           </h3>
@@ -76,9 +75,9 @@ const ChangePass = () => {
               />
             </div>
             <div className="flex items-center gap-3 justify-center my-3 mt-7">
-              <Button className="btn-org !w-full !py-2 !font-bold hover:!bg-black hover:!text-white transition-all duration-300">
-                UPDATE PASSWORD
-              </Button>
+                <Button className="btn-org !w-full !py-2 !font-bold hover:!bg-black hover:!text-white transition-all duration-300">
+                  UPDATE PASSWORD
+                </Button>
             </div>
           </form>
         </div>

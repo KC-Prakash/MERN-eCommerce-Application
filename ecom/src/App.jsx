@@ -1,3 +1,4 @@
+import "./responsive.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./Pages/Home/Home";
@@ -64,7 +65,7 @@ function App() {
     <>
       <BrowserRouter>
         <MyContext.Provider value={values}>
-          <Header></Header>
+          {isLogin === true ? <Header></Header> : <></>}
           <CartDrawer></CartDrawer>
           <Routes>
             <Route path={"/"} exact={true} element={<Home></Home>}></Route>
@@ -125,7 +126,7 @@ function App() {
               element={<TrackOrders></TrackOrders>}
             ></Route>
           </Routes>
-          <Footer></Footer>
+          {isLogin === true ? <Footer></Footer> : <></>}
         </MyContext.Provider>
       </BrowserRouter>
 
