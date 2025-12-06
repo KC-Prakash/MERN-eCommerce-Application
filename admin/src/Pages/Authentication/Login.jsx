@@ -12,14 +12,14 @@ const Login = () => {
   const navigate = useNavigate();
   const context = useContext(MyContext);
   const login = () => {
-    context.setIsLogin(true)
-    navigate('/dashboard')
+    context.setIsLogin(true);
+    navigate("/dashboard");
   };
 
   return (
-    <section className="section py-10">
-      <div className="container">
-        <div className="card my-50 shadow-md w-[500px] m-auto rounded-md bg-white p-5 px-8">
+    <section className="section min-h-screen flex justify-center items-center">
+      <div className="container flex justify-center">
+        <div className="card shadow-md w-[400px] md:w-[600px] lg:w-[900px] m-auto rounded-md bg-white p-5 px-8">
           <h3 className="text-center text-[20px] font-[500]">
             Login to your Admin Account
           </h3>
