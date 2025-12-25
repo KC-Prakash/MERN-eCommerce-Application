@@ -3,7 +3,8 @@ import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import sendEmailFun from "../config/sendEmail.js";
 import VerificationEmail from "../utils/verifyEmailTemplate.js";
-import { error } from "console";
+import generatedAccessToken from "../utils/generatedAccessToken.js";
+import generatedRefreshToken from "../utils/generatedRefreshToken.js";
 
 export async function registerUserController(request, response) {
   try {
@@ -60,12 +61,11 @@ export async function registerUserController(request, response) {
     );
 
     return response.status(200).json({
-        success: true,
-        error: false,
-        message: 'User Registered Successfully! Please Verify Your Email.',
-        token: token
-    })
-
+      success: true,
+      error: false,
+      message: "User Registered Successfully! Please Verify Your Email.",
+      token: token,
+    });
   } catch (error) {
     return response.status(500).json({
       message: error.message || error,
@@ -77,47 +77,138 @@ export async function registerUserController(request, response) {
 
 export async function verifyEmailController(request, response) {
   try {
-    const { email, otp } = request.body
+    const { email, otp } = request.body;
 
-    const user = await userModel.findOne({ email: email })
+    const user = await userModel.findOne({ email: email });
 
-    if(!user){
+    if (!user) {
       return response.status(400).json({
         error: true,
         success: false,
-        message: 'User Not Found'
-      })
+        message: "User Not Found",
+      });
     }
 
-    const isCodeValid = user.otp === otp
-    const isNotExpired = user.otpExpires > Date.now()
+    const isCodeValid = user.otp === otp;
+    const isNotExpired = user.otpExpires > Date.now();
 
-    if ( isCodeValid && isNotExpired ){
-      user.verify_email = true,
-      user.otp = null,
-      user.otpExpires = null
-      await user.save()
+    if (isCodeValid && isNotExpired) {
+      (user.verify_email = true), (user.otp = null), (user.otpExpires = null);
+      await user.save();
       return response.status(200).json({
         error: false,
-        success: true, 
-        message: 'Email Verified Successfully',
-      })
-    }
-    else if(!isCodeValid){
+        success: true,
+        message: "Email Verified Successfully",
+      });
+    } else if (!isCodeValid) {
       return response.json({
         error: true,
         success: false,
-        message: 'Invalid OTP'
-      })
-    }
-    else{
+        message: "Invalid OTP",
+      });
+    } else {
       return response.json({
         error: true,
         success: false,
-        message: 'OTP Expires'
-      })
+        message: "OTP Expires",
+      });
+    }
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function loginUserController(request, response) {
+  const { email, password } = request.body;
+  const user = await userModel.findOne({ email: email });
+
+  try {
+    if (!user) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "User Was Not Registered",
+      });
     }
 
+    if (user.verify_email !== true) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "Email Was Not Verified. Contact Admim to Verify.",
+      });
+    }
+
+    const checkPassword = await bcryptjs.compare(password, user.password);
+
+    if (!checkPassword) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "Password is Wrong. Check Your Password",
+      });
+    }
+
+    const accessToken = await generatedAccessToken(user._id);
+    const refreshToken = await generatedRefreshToken(user._id);
+
+    const updateUser = await userModel.findByIdAndUpdate(user?._id, {
+      last_login_date: new Date(),
+    });
+
+    const cookiesOption = {
+      httpOnly: true,
+      secure: false,
+      sameSite: "None",
+    };
+
+    response.cookie("accessToken", accessToken, cookiesOption);
+    response.cookie("refreshToken", refreshToken, cookiesOption);
+
+    return response.json({
+      error: false,
+      success: true,
+      message: "Login Successfully",
+      data: {
+        accessToken,
+        refreshToken,
+      },
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function logoutController(request, response) {
+  try {
+    const userid = request.userId;
+
+    const cookiesOption = {
+      httpOnly: true,
+      secure: false,
+      sameSite: "None",
+    };
+
+    response.clearCookie("accessToken", cookiesOption);
+    response.clearCookie("refreshToken", cookiesOption);
+
+    const removeRefreshToken = await userModel.findByIdAndUpdate(userid, {
+      refresh_token: null,
+    });
+
+    return response.json({
+      error: false,
+      success: true,
+      message: "Logout Successfully.",
+    });
   } catch (error) {
     return response.status(500).json({
       message: error.message || error,
