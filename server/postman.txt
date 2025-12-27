@@ -37,3 +37,30 @@ delete avatar
 localhost:8000/api/user/deleteImage?img=
 
 -----------------------------------------
+
+forgot-password
+
+{
+    "email": "shafeekeditsyt@gmail.com"
+}
+
+-----------------------------------------
+
+verify-forgot-password-otp
+
+{
+    "email": "engineersera1@gmail.com",
+    "otp": "611331"
+}
+
+----------------------------------------
+
+reset-password
+
+{
+    "email": "engineersera1@gmail.com",
+    "newPassword": "123456",
+    "confirmPassword": "123456"
+}
+
+---------------------------------------

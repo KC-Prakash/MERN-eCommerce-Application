@@ -7,6 +7,7 @@ import generatedAccessToken from "../utils/generatedAccessToken.js";
 import generatedRefreshToken from "../utils/generatedRefreshToken.js";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
+import { error } from "console";
 
 cloudinary.config({
   cloud_name: process.env.cloudinary_Config_Cloud_Name,
@@ -372,6 +373,159 @@ export async function updateUserDetails(request, response) {
       user: updateUser,
       message: "user Updated Successfully.",
     });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function forgotPasswordController(request, response) {
+  try {
+    const { email } = request.body;
+
+    const user = await userModel.findOne({ email: email });
+
+    if (!user) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "This Email Was Not Registered.",
+      });
+    } else {
+      let verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+      user.otp = verifyCode;
+      user.otpExpires = Date.now() + 600000;
+
+      await user.save();
+
+      await sendEmailFun({
+        sendTo: email,
+        subject: "Verify email from REPIIT eCommerce App",
+        text: "",
+        html: VerificationEmail(user.name, verifyCode),
+      });
+
+      return response.status(200).json({
+        success: true,
+        error: false,
+        message: "Verification OTP Sent to your Email.",
+      });
+    }
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function verifyForgotPasswordOtp(request, response) {
+  try {
+    const { email, otp } = request.body;
+
+    
+    if (!email || !otp) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "email or OTP feild Was Empty",
+      });
+    }
+    
+    const user = await userModel.findOne({ email: email });
+
+    if (!user) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "This Email Was Not Registered.",
+      });
+    }
+
+    if (otp !== user.otp) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "Invalid OTP.",
+      });
+    }
+
+    const currentTime = new Date().toISOString();
+
+    if (user.otpExpires < currentTime) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "OTP Expired.",
+      });
+    }
+
+    user.otp = null;
+    user.otpExpires = null;
+
+    await user.save();
+
+    return response.status(200).json({
+      error: false,
+      success: true,
+      message: "OTP Verified.",
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function resetPassword(request, response) {
+  try {
+    const { email, newPassword, confirmPassword } = request.body
+
+    if (!email || !newPassword || !confirmPassword) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "email andd password feilds are Empty",
+      });
+    }
+
+    const user = await userModel.findOne({email: email})
+
+    if (!user) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "This Email Was Not Registered.",
+      });
+    }
+
+    if(newPassword !== confirmPassword){
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "Password and Confirm Password Must be Same.",
+      });
+    }
+
+    const salt = await bcryptjs.genSalt(10);
+    const hashPassword = await bcryptjs.hash(newPassword, salt);
+
+    user.password = hashPassword
+    await user.save()
+
+    return response.status(400).json({
+        error: false,
+        success: true,
+        message: "Password Updated Successfully.",
+      });
+
   } catch (error) {
     return response.status(500).json({
       message: error.message || error,
