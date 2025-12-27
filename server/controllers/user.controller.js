@@ -150,7 +150,7 @@ export async function loginUserController(request, response) {
       return response.status(400).json({
         error: true,
         success: false,
-        message: "Email Was Not Verified. Contact Admim to Verify.",
+        message: "Email Was Not Verified.",
       });
     }
 
@@ -314,5 +314,69 @@ export async function removeImageFromCloudinary(request, response) {
     if (res) {
       return response.status(200).send(res);
     }
+  }
+}
+
+export async function updateUserDetails(request, response) {
+  try {
+    const userId = request.userId;
+    const { name, email, mobile, password } = request.body;
+
+    const userExist = await userModel.findById(userId);
+
+    if (!userExist) {
+      return response.status(400).send("User Was Not Registered.");
+    }
+
+    let verifyCode = "";
+
+    if (email !== userExist.email) {
+      verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
+    }
+
+    let hashPassword = "";
+
+    if (password) {
+      const salt = await bcryptjs.genSalt(10);
+      hashPassword = await bcryptjs.hash(password, salt);
+    } else {
+      hashPassword = userExist.password;
+    }
+
+    const updateUser = await userModel.findByIdAndUpdate(
+      userId,
+      {
+        name: name,
+        mobile: mobile,
+        email: email,
+        verify_email: email !== userExist.email ? false : true,
+        password: hashPassword,
+        otp: verifyCode !== "" ? verifyCode : null,
+        otpExpires: verifyCode !== "" ? Date.now() + 600000 : "",
+      },
+      { new: true }
+    );
+
+    if (email !== userExist.email) {
+      await sendEmailFun({
+        sendTo: email,
+        subject: "Verify email from REPIIT eCommerce App",
+        text: "",
+        html: VerificationEmail(name, verifyCode),
+      });
+    }
+
+    return response.status(200).json({
+      error: false,
+      success: true,
+      user: updateUser,
+      message: "user Updated Successfully.",
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
   }
 }
