@@ -5,6 +5,17 @@ import sendEmailFun from "../config/sendEmail.js";
 import VerificationEmail from "../utils/verifyEmailTemplate.js";
 import generatedAccessToken from "../utils/generatedAccessToken.js";
 import generatedRefreshToken from "../utils/generatedRefreshToken.js";
+import { v2 as cloudinary } from "cloudinary";
+import fs from "fs";
+
+cloudinary.config({
+  cloud_name: process.env.cloudinary_Config_Cloud_Name,
+  api_key: process.env.cloudinary_Config_api_key,
+  api_secret: process.env.cloudinary_Config_api_secret,
+  secure: true,
+});
+
+var imagesArr = [];
 
 export async function registerUserController(request, response) {
   try {
@@ -215,5 +226,93 @@ export async function logoutController(request, response) {
       error: true,
       success: false,
     });
+  }
+}
+
+export async function userAvatarController(request, response) {
+  try {
+    imagesArr = [];
+
+    const userId = request.userId;
+    const image = request.files;
+
+    const user = await userModel.findOne({ _id: userId });
+
+    if (!user) {
+      return response.status(500).json({
+        error: true,
+        success: false,
+        message: "User Not Found",
+      });
+    }
+
+    //remove already existed avatar and store new avatar
+
+    const imgUrl = user.avatar;
+
+    const urlArr = imgUrl.split("/");
+    const avatar_image = urlArr[urlArr.length - 1];
+
+    const imageName = avatar_image.split(".")[0];
+
+    if (imageName) {
+      const res = await cloudinary.uploader.destroy(
+        imageName,
+        (error, result) => {}
+      );
+      if (res) {
+        response.status(200).send(res);
+      }
+    }
+
+    const options = {
+      use_filename: true,
+      unique_filename: false,
+      overwrite: false,
+    };
+
+    for (let i = 0; i < image?.length; i++) {
+      const img = await cloudinary.uploader.upload(
+        image[i].path,
+        options,
+        function (error, result) {
+          imagesArr.push(result.secure_url);
+          fs.unlinkSync(`uploads/${request.files[i].filename}`);
+        }
+      );
+    }
+
+    user.avatar = imagesArr[0];
+    await user.save();
+
+    return response.status(200).json({
+      _id: userId,
+      avatar: imagesArr[0],
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function removeImageFromCloudinary(request, response) {
+  const imgUrl = request.query.img;
+
+  const urlArr = imgUrl.split("/");
+  const image = urlArr[urlArr.length - 1];
+
+  const imageName = image.split(".")[0];
+
+  if (imageName) {
+    const res = await cloudinary.uploader.destroy(
+      imageName,
+      (error, result) => {}
+    );
+    if (res) {
+      return response.status(200).send(res);
+    }
   }
 }

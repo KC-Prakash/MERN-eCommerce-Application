@@ -1,0 +1,39 @@
+register
+
+{
+    "name": "Mohammed Shafeek",
+    "email": "engineersera1@gmail.com",
+    "password": "1234"
+}
+
+----------------------------------------
+
+verify-otp
+
+{
+    "email": "engineersera1@gmail.com",
+    "otp": "501787"
+}
+
+-----------------------------------------
+
+login
+
+{
+    "email": "engineersera1@gmail.com",
+    "password": "1234"
+}
+
+-----------------------------------------
+
+upload avatar
+
+key - avatar
+
+-----------------------------------------
+
+delete avatar
+
+localhost:8000/api/user/deleteImage?img=
+
+-----------------------------------------
