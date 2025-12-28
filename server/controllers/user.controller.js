@@ -7,7 +7,6 @@ import generatedAccessToken from "../utils/generatedAccessToken.js";
 import generatedRefreshToken from "../utils/generatedRefreshToken.js";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
-import { error } from "console";
 
 cloudinary.config({
   cloud_name: process.env.cloudinary_Config_Cloud_Name,

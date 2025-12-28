@@ -75,3 +75,19 @@ reset-password
 }
 
 ---------------------------------------
+
+create category
+
+{
+    "name": "Fashion"
+}
+
+_____
+
+{
+    "name": "Men",
+    "parentId": "6950cf6673fe8d34048768cb",
+    "parentCatname": "Fashion"
+}
+
+---------------------------------------
