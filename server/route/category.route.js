@@ -5,15 +5,19 @@ import upload from "../middlewares/multer.js";
 // import all controllers
 import {
   createCategory,
+  deleteCategory,
   getCategories,
   getCategoriesCount,
+  getCategory,
   getSubCategoriesCount,
 } from "../controllers/category.controller.js";
 
 const categoryRouter = Router();
 categoryRouter.post("/create", auth, createCategory);
 categoryRouter.get("/", auth, getCategories);
-categoryRouter.get("/get/count", auth, getCategoriesCount);
-categoryRouter.get("/get/count/subCat", auth, getSubCategoriesCount);
+categoryRouter.get("/get/count", getCategoriesCount);
+categoryRouter.get("/get/count/subCat", getSubCategoriesCount);
+categoryRouter.get("/:id", getCategory);
+categoryRouter.delete("/:id", deleteCategory);
 
 export default categoryRouter;

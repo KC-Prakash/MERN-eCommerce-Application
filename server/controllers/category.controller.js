@@ -116,3 +116,77 @@ export async function getSubCategoriesCount(request, response) {
     });
   }
 }
+
+export async function getCategory(request, response) {
+  try {
+    const { id } = request.params;
+
+    const category = await CategoryModel.findById(id);
+
+    if (!category) {
+      response.status(500).json({
+        error: true,
+        success: false,
+        message: "The Category was Not Found.",
+      });
+    }
+
+    response.status(200).json({
+      error: false,
+      success: true,
+      category: category,
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function deleteCategory(request, response) {
+  try {
+    const { id } = request.params;
+
+    const subCategory = await CategoryModel.find({ parentId: id });
+
+    for (let i = 0; i < subCategory.length; i++) {
+      const thirdSubCategory = await CategoryModel.find({
+        parentId: subCategory[i]._id,
+      });
+
+      for (let i = 0; i < thirdSubCategory.length; i++) {
+        const deleteThirdSubCategory = await CategoryModel.findByIdAndDelete(
+          thirdSubCategory[i]._id
+        );
+      }
+
+      const deleteSubCategory = await CategoryModel.findByIdAndDelete(
+        subCategory[i]._id
+      );
+    }
+
+    const deleteCategory = await CategoryModel.findByIdAndDelete(id);
+
+    if (!deleteCategory) {
+      return response.status(404).json({
+        error: true,
+        success: false,
+        message: "category Not Found",
+      });
+    }
+
+    return response.status(200).json({
+      error: false,
+      success: true,
+      message: "category Deleted Successfully.",
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
