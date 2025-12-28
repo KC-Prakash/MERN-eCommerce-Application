@@ -64,3 +64,55 @@ export async function getCategories(request, response) {
     });
   }
 }
+
+export async function getCategoriesCount(request, response) {
+  try {
+    const categoryCount = await CategoryModel.countDocuments({
+      parentId: undefined,
+    });
+    if (!categoryCount) {
+      response.status(500).json({
+        error: true,
+        success: false,
+      });
+    } else {
+      response.send({
+        categoryCount: categoryCount,
+      });
+    }
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
+
+export async function getSubCategoriesCount(request, response) {
+  try {
+    const categories = await CategoryModel.find();
+    if (!categories) {
+      response.status(500).json({
+        error: true,
+        success: false,
+      });
+    } else {
+      const subCatList = [];
+      for (let cat of categories) {
+        if (cat.parentId !== undefined) {
+          subCatList.push(cat);
+        }
+      }
+      response.status(200).send({
+        subCategoryCount: subCatList.length,
+      });
+    }
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}
