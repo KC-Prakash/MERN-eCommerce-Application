@@ -3,11 +3,20 @@ import auth from "../middlewares/auth.js";
 import upload from "../middlewares/multer.js";
 
 // import all controllers
-import { createProduct, uploadImages } from "../controllers/product.controller.js";
+import {
+  createProduct,
+  getAllProducts,
+  getAllProductsByCatId,
+  getAllProductsByCatName,
+  uploadImages,
+} from "../controllers/product.controller.js";
 
 const productRouter = Router();
 
-productRouter.post("/uploadImages", auth, upload.array('images'), uploadImages);
+productRouter.post("/uploadImages", auth, upload.array("images"), uploadImages);
 productRouter.post("/create", auth, createProduct);
+productRouter.get("/getAllProducts", getAllProducts);
+productRouter.get("/getByCategoryId/:id", getAllProductsByCatId);
+productRouter.get("/getByCategoryName", getAllProductsByCatName);
 
-export default productRouter
+export default productRouter;
