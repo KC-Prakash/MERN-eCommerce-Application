@@ -190,3 +190,40 @@ export async function deleteCategory(request, response) {
     });
   }
 }
+
+export async function updateCategory(request, response) {
+  try {
+    const { id } = request.params;
+    const { name, parentId, parentCatName } = request.body;
+
+    const category = await CategoryModel.findByIdAndUpdate(
+      id,
+      {
+        name: name,
+        parentId: parentId,
+        parentCatName: parentCatName,
+      },
+      { new: true }
+    );
+
+    if (!category) {
+      return response.status(400).json({
+        error: true,
+        success: false,
+        message: "Category Not Found",
+      });
+    }
+
+    response.status(200).json({
+      error: false,
+      success: true,
+      category: category,
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}

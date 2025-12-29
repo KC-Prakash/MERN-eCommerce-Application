@@ -10,6 +10,7 @@ import {
   getCategoriesCount,
   getCategory,
   getSubCategoriesCount,
+  updateCategory,
 } from "../controllers/category.controller.js";
 
 const categoryRouter = Router();
@@ -19,5 +20,6 @@ categoryRouter.get("/get/count", getCategoriesCount);
 categoryRouter.get("/get/count/subCat", getSubCategoriesCount);
 categoryRouter.get("/:id", getCategory);
 categoryRouter.delete("/:id", deleteCategory);
+categoryRouter.put("/:id", updateCategory);
 
 export default categoryRouter;
