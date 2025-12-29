@@ -8,12 +8,7 @@ import helmet from "helmet";
 import connectDB from "./config/connectDB.js";
 import userRouter from "./route/user.route.js";
 import categoryRouter from "./route/category.route.js";
-
-// import mongoose from "mongoose";
-// import bcrypt from "bcrypt";
-// import jwt from "jsonwebtoken";
-// import multer from "multer";
-// import { v2 as cloudinary } from "cloudinary";
+import productRouter from "./route/product.route.js";
 
 const app = express()
 app.use(cors())
@@ -36,6 +31,7 @@ app.get("/",(request,response)=>{
 
 app.use('/api/user', userRouter)
 app.use('/api/category', categoryRouter)
+app.use('/api/product', productRouter)
 
 connectDB().then(()=>{
     app.listen(PORT, ()=>{
