@@ -58,7 +58,7 @@ export async function registerUserController(request, response) {
 
     await sendEmailFun({
       sendTo: email,
-      subject: "Verify email from REPIIT eCommerce App",
+      subject: "Email Verification for User Registration from REPIIT eCommerce App",
       text: "",
       html: VerificationEmail(name, verifyCode),
     });
@@ -403,7 +403,7 @@ export async function forgotPasswordController(request, response) {
 
       await sendEmailFun({
         sendTo: email,
-        subject: "Verify email from REPIIT eCommerce App",
+        subject: "Email Verification for Change Password from REPIIT eCommerce App",
         text: "",
         html: VerificationEmail(user.name, verifyCode),
       });

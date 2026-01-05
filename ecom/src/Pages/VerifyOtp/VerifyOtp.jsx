@@ -17,20 +17,39 @@ const Verify = () => {
 
   const verifyOTP = (e) => {
     e.preventDefault();
-    postData("/api/user/verifyEmail", {
-      email: localStorage.getItem("userEmail"),
-      otp: otp,
-    }).then((res) => {
-      console.log(res);
-      if (res?.error !== true) {
-        context.openAlertBox("success", res?.message);
-        localStorage.removeItem("userEmail");
-        navigate("/login");
-      } else {
-        context.openAlertBox("error", res?.message);
-      }
-    });
+
+    const actionType = localStorage.getItem("actionType");
+
+    if (actionType !== "forgot-password") {
+      postData("/api/user/verifyEmail", {
+        email: localStorage.getItem("userEmail"),
+        otp: otp,
+      }).then((res) => {
+        console.log(res);
+        if (res?.error !== true) {
+          context.openAlertBox("success", res?.message);
+          localStorage.removeItem("userEmail");
+          navigate("/login");
+        } else {
+          context.openAlertBox("error", res?.message);
+        }
+      });
+    } else {
+      postData("/api/user/verify-forgot-password-otp", {
+        email: localStorage.getItem("userEmail"),
+        otp: otp,
+      }).then((res) => {
+        console.log(res);
+        if (res?.error !== true) {
+          context.openAlertBox("success", res?.message);
+          navigate("/changePassword");
+        } else {
+          context.openAlertBox("error", res?.message);
+        }
+      });
+    }
   };
+
   return (
     <section className="section min-h-screen flex justify-center items-center">
       <div className="container flex justify-center">

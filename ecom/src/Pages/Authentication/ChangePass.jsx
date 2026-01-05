@@ -2,27 +2,78 @@ import React, { useContext, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { MyContext } from "../../App";
+import CircularProgress from "@mui/material/CircularProgress";
+import { postData } from "../../utils/api";
 
 const ChangePass = () => {
-  const context = useContext(MyContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const [formFeilds, setFormFields] = useState({
+    email: localStorage.getItem("userEmail"),
+    newPassword: "",
+    confirmPassword: "",
+  });
 
-  const history = useNavigate();
+  const valideValue = Object.values(formFeilds).every((el) => el);
+
+  const context = useContext(MyContext);
+  const navigate = useNavigate();
+
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormFields(() => {
+      return {
+        ...formFeilds,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    if (formFeilds.newPassword === "") {
+      context.openAlertBox("error", "Password Can't Be Empty");
+      setIsLoading(false);
+    } else if (formFeilds.newPassword !== formFeilds.confirmPassword) {
+      setIsLoading(false);
+    }
+
+    postData("/api/user/reset-password", formFeilds).then((res) => {
+      console.log(res);
+      if (res?.error !== true) {
+        setIsLoading(false);
+        context.openAlertBox("success", res?.message);
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("actionType");
+        setFormFields({
+          newPassword: "",
+          confirmPassword: "",
+        });
+        navigate("/login");
+      } else {
+        context.openAlertBox("error", res?.message);
+        setIsLoading(false);
+      }
+    });
+  };
 
   return (
     <section className="section min-h-screen flex justify-center items-center">
       <div className="container flex justify-center">
-        <div className="card shadow-md w-[400px] md:w-[600px] lg:w-[900px] m-auto rounded-md bg-white p-5 px-8">
+        <div className="card shadow-md w-[400px] m-auto rounded-md bg-white p-5 px-8">
           <h3 className="text-center text-[20px] mb-5 font-[500]">
             Reset Password
           </h3>
-          <form className="w-full">
+          <form className="w-full" onSubmit={handleSubmit}>
             <div className="form-group w-full mb-3 relative">
               <TextField
                 type="password"
-                id="password"
-                name="password"
+                id="newPassword"
+                name="newPassword"
+                value={formFeilds.newPassword}
+                disabled={isLoading === true ? true : false}
                 label="New Password"
                 variant="outlined"
                 sx={{
@@ -44,13 +95,16 @@ const ChangePass = () => {
                   },
                 }}
                 className="w-full"
+                onChange={onChangeInput}
               />
             </div>
             <div className="form-group w-full mb-3 relative">
               <TextField
                 type="password"
-                id="cPassword"
-                name="cPassword"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formFeilds.confirmPassword}
+                disabled={isLoading === true ? true : false}
                 label="Confirm New Password"
                 variant="outlined"
                 sx={{
@@ -72,12 +126,28 @@ const ChangePass = () => {
                   },
                 }}
                 className="w-full"
+                onChange={onChangeInput}
               />
             </div>
             <div className="flex items-center gap-3 justify-center my-3 mt-7">
-                <Button className="btn-org !w-full !py-2 !font-bold hover:!bg-black hover:!text-white transition-all duration-300">
-                  UPDATE PASSWORD
-                </Button>
+              <Button
+                type="submit"
+                disabled={!valideValue}
+                className={`${
+                  !valideValue === true
+                    ? "!bg-gray-200"
+                    : "btn-org !bg-[var(--primary-clr)]"
+                } !w-full !py-2 !font-bold hover:!bg-black hover:!text-white transition-all duration-300 flex gap-2`}
+              >
+                {isLoading === true ? (
+                  <CircularProgress
+                    color="inherit"
+                    size={24}
+                  ></CircularProgress>
+                ) : (
+                  "UPDATE PASSWORD"
+                )}
+              </Button>
             </div>
           </form>
         </div>

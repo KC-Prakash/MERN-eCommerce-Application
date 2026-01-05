@@ -59,7 +59,7 @@ const VerificationEmail = (username, otp) => {
     <body>
       <div class="container">
         <div class="header">
-          Email Verification
+          Verification OTP
         </div>
 
         <div class="content">

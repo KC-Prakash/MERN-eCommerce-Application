@@ -14,6 +14,7 @@ const Login = () => {
     password: "",
   });
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const valideValue = Object.values(formFeilds).every((el) => el);
 
   const context = useContext(MyContext);
@@ -55,8 +56,29 @@ const Login = () => {
   };
 
   const forgotPass = () => {
-    context.openAlertBox("success", "OTP Sent to your Email");
-    navigate("/verify");
+    if (formFeilds.email === "") {
+      context.openAlertBox("error", "Email Required to reset Password");
+    } else if (!emailRegex.test(formFeilds.email)) {
+      context.openAlertBox("error", "Enter Valid Email");
+    } else {
+      setIsLoading(true);
+      context.openAlertBox("success", "OTP send to Your Email");
+      localStorage.setItem("userEmail", formFeilds.email);
+      localStorage.setItem("actionType", "forgot-password");
+
+      postData("/api/user/forgot-password", {
+        email: formFeilds.email,
+      }).then((res) => {
+        if (res?.error !== true) {
+          setIsLoading(false);
+          context.openAlertBox("success", res?.message);
+          navigate("/verify");
+        } else {
+          setIsLoading(false);
+          context.openAlertBox("error", res?.message);
+        }
+      });
+    }
   };
 
   return (
