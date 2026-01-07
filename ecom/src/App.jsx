@@ -5,7 +5,7 @@ import Home from "./Pages/Home/Home";
 import ProductList from "./Pages/ProductList/ProductList";
 import Footer from "./components/Footer/Footer";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import MainImage from "./components/MainImage/MainImage";
@@ -24,15 +24,17 @@ import MyAccount from "./Pages/MyAccount/MyAccount";
 import Wishlist from "./Pages/Wishlist/Wishlist";
 import MyOrders from "./Pages/MyOrders/MyOrders";
 import TrackOrders from "./Pages/TrackOrders/TrackOrders";
+import { getData } from "./utils/api";
 
 const MyContext = createContext();
 
 function App() {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const [openProductDetailDialog, setOpenProductDetailDialog] = useState(false);
-
   const [openCartDrawer, setOpenCartDrawer] = useState(false);
-
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   const openAlertBox = (status, msg) => {
     if (status === "success") {
@@ -51,6 +53,28 @@ function App() {
     setOpenCartDrawer(newOpen);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+
+    if (token !== undefined && token !== null && token !== "") {
+      setIsLogin(true);
+      getData(`/api/user/user-details`).then((res) => {
+        console.log(res);
+        setUserData(res.data);
+        if(res?.response?.data?.error === true){
+          if(res?.response?.data?.message === "You have not Login"){
+            localStorage.removeItem("accessToken")
+            localStorage.removeItem("refreshToken")
+            openAlertBox('error', 'Your Session Is Closed')
+            setIsLogin(false)
+          }
+        }
+      });
+    } else {
+      setIsLogin(false);
+    }
+  }, [isLogin]);
+
   const values = {
     setOpenProductDetailDialog,
     setOpenCartDrawer,
@@ -59,74 +83,51 @@ function App() {
     openAlertBox,
     isLogin,
     setIsLogin,
+    userData,
+    setUserData,
   };
 
   return (
     <>
       <BrowserRouter>
         <MyContext.Provider value={values}>
-          {isLogin === true ? <Header></Header> : <></>}
+          <Header></Header>
           <CartDrawer></CartDrawer>
           <Routes>
-            <Route path={"/"} exact={true} element={<Home></Home>}></Route>
-            <Route
-              path={"/productList"}
-              exact={true}
-              element={<ProductList></ProductList>}
-            ></Route>
-            <Route
-              path={"/productDetail/:id"}
-              exact={true}
-              element={<ProductDetail></ProductDetail>}
-            ></Route>
             <Route
               path={"/login"}
               exact={true}
               element={<Login></Login>}
             ></Route>
+            <Route path={"/"} element={<Home></Home>}></Route>
             <Route
-              path={"/register"}
-              exact={true}
-              element={<Register></Register>}
+              path={"/productList"}
+              element={<ProductList></ProductList>}
             ></Route>
-            <Route path={"/cart"} exact={true} element={<Cart></Cart>}></Route>
             <Route
-              path={"/verify"}
-              exact={true}
-              element={<VerifyOtp></VerifyOtp>}
+              path={"/productDetail/:id"}
+              element={<ProductDetail></ProductDetail>}
             ></Route>
+            <Route path={"/register"} element={<Register></Register>}></Route>
+            <Route path={"/cart"} element={<Cart></Cart>}></Route>
+            <Route path={"/verify"} element={<VerifyOtp></VerifyOtp>}></Route>
             <Route
               path={"/changePassword"}
-              exact={true}
               element={<ChangePass></ChangePass>}
             ></Route>
-            <Route
-              path={"/checkout"}
-              exact={true}
-              element={<Checkout></Checkout>}
-            ></Route>
+            <Route path={"/checkout"} element={<Checkout></Checkout>}></Route>
             <Route
               path={"/my-account"}
-              exact={true}
               element={<MyAccount></MyAccount>}
             ></Route>
-            <Route
-              path={"/wishlist"}
-              exact={true}
-              element={<Wishlist></Wishlist>}
-            ></Route>
-            <Route
-              path={"/my-orders"}
-              exact={true}
-              element={<MyOrders></MyOrders>}
-            ></Route>
+            <Route path={"/wishlist"} element={<Wishlist></Wishlist>}></Route>
+            <Route path={"/my-orders"} element={<MyOrders></MyOrders>}></Route>
             <Route
               path={"/track-orders"}
-              exact={true}
               element={<TrackOrders></TrackOrders>}
             ></Route>
           </Routes>
-          {isLogin === true ? <Footer></Footer> : <></>}
+          <Footer></Footer>
         </MyContext.Provider>
       </BrowserRouter>
 
