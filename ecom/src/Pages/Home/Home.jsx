@@ -29,13 +29,13 @@ const Home = () => {
       <section className="bg-white pt-8">
         <div className="container">
           <div className="flex items-center justify-between">
-            <div className="leftSection w-[30%]">
+            <div className="leftSection w-[25%]">
               <h2 className="text-[20px] font-medium">Popular Products</h2>
               <p className="text-[14px] font-[500]">
                 Do not miss the current offers until the end of the Season.
               </p>
             </div>
-            <div className="rightSection w-[60%]">
+            <div className="rightSection w-[65%]">
               <Tabs
                 value={value}
                 onChange={handleChange}
